@@ -26,8 +26,15 @@ namespace DLPLneopixel {
     //% block
     export function schreibe_zeichen(z: string, e: MyEnum): void {
         // Add code here
-        neop_schreibe(z)
+        neop_schreibe_zch(z)
     }
+
+    //% block
+    export function schreibe_wort(w: string, e: MyEnum): void {
+        // Add code here
+        neop_schreibe_wort(w)
+    }
+
 
     /**
      * TODO: Beschreibe deine Funktion hier

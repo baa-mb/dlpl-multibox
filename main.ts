@@ -5,16 +5,16 @@ input.onButtonPressed(Button.A, function () {
     let mx=neop.hardwarepixel[0];
     let my=neop.hardwarepixel[1];
     //shift=(mx*2 -1 + shift--) % mx;
-    //neop_schreibe();
+    //neop_schreibe_zch();
     //bst_nr++;
     let anz=arr_zeichen_tabelle.length
-    //neop_schreibe(alphabet[(++bst_nr % anz)])
-    neop_schreibe(arr_zeichen_tabelle[(++bst_nr % anz)].bst)
+    //neop_schreibe_zch(alphabet[(++bst_nr % anz)])
+    neop_schreibe_zch(arr_zeichen_tabelle[(++bst_nr % anz)].bst)
 })
 input.onButtonPressed(Button.B, function () {
     neop_reihe(7);
     //    neop_spalte(7)
-    //neop_schreibe();
+    //neop_schreibe_zch();
 })
 
 input.onButtonPressed(Button.AB, function () {
@@ -25,7 +25,7 @@ input.onButtonPressed(Button.AB, function () {
 
 function neop_reihe(y:number=0) {
     for (let x = 0; x < neop.hardwarepixel[0]; x++) {
-        neop_schreibe("#")
+        neop_schreibe_zch("#")
         pause(500)
     }
 }
@@ -33,7 +33,7 @@ function neop_spalte(x:number=0) {
     let mx=neop.hardwarepixel[0];
     let my=neop.hardwarepixel[1];
     for (let y:number = 0; y < neop.hardwarepixel[1]; y++) {
-        neop_schreibe("-")
+        neop_schreibe_zch("-")
         shift=(mx*2 -1 + shift--) % mx;
         pause(500)
     }
@@ -47,7 +47,7 @@ function init_neop() {
     neop_strip.show()
 }
 
-function neop_schreibe (zch:string="A") {
+function neop_schreibe_zch (zch:string="A") {
     let mx=neop.hardwarepixel[0];
     let my=neop.hardwarepixel[1];
     let zeichen_matrix:Array<number>=[]
@@ -128,10 +128,10 @@ function init_zeichen() {
 }
 
 
-function neop_schreib_wort(wort:string="LEER") {
+function neop_schreibe_wort(wort:string="LEER") {
    //let wort:string="BaCHINGER#"
    for (let b:number=0;b<wort.length;b++) {
-       neop_schreibe(wort[b]);
+       neop_schreibe_zch(wort[b]);
        pause (neop.wortPause)
    }
 }
@@ -143,11 +143,11 @@ function tests () {
     // arr_zeichen_tabelle.forEach (function (wert,index) {
     //     console.log(index + " " + wert.bst)
     // })
-    //neop_schreibe("B")
+    //neop_schreibe_zch("B")
 
     // let wort:string="BaCHINGER#"
     // for (let b:number=0;b<wort.length;b++) {
-    //     neop_schreibe(wort[b]);
+    //     neop_schreibe_zch(wort[b]);
     //     pause (1000)
     // }
 
@@ -179,4 +179,4 @@ init_zeichen();
 init_neop()
 
 basic.showIcon(IconNames.Yes)
-//neop_schreibe("A")
+//neop_schreibe_zch("A")

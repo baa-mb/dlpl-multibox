@@ -127,6 +127,14 @@ function init_zeichen() {
     ]
 }
 
+
+function neop_schreib_wort(wort:string="LEER") {
+   //let wort:string="BaCHINGER#"
+   for (let b:number=0;b<wort.length;b++) {
+       neop_schreibe(wort[b]);
+       pause (neop.wortPause)
+   }
+}
 function tests () {
     //let arr_zeichen_matrix
     // console.log(arr_zeichen_exists)
@@ -153,7 +161,8 @@ let neop = {
     helligkeit: 50,
     farbe: 0x0000FF,
     softwarepixel: [8,8],
-    muster: [31,31,17,17,17,31,31]   
+    muster: [31,31,17,17,17,31,31],
+    wortPause: 1000   
 }
 
 interface zch_tab {

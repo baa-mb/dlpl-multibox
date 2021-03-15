@@ -5,11 +5,11 @@
  * Weitere Informationen unter https://makecode.microbit.org/blocks/custom
  */
 
-enum MyEnum {
-    //% block="one"
-    One,
-    //% block="two"
-    Two
+enum MyPin {
+    //% block="Links"
+    Links=0,
+    //% block="Rechts"
+    Rechts=1
 }
 
 /**
@@ -24,13 +24,13 @@ namespace DLPLneopixel {
      * @param e Beschreibe die Parameter hier
      */
     //% block
-    export function schreibe_zeichen(z: string, e: MyEnum): void {
+    export function schreibe_zeichen(z: string, e: MyPin): void {
         // Add code here
         neop_schreibe_zch(z)
     }
 
     //% block
-    export function schreibe_wort(w:string, e: MyEnum): void {
+    export function schreibe_wort(w:string, e: MyPin): void {
         // Add code here
         neop_schreibe_wort(w)
     }

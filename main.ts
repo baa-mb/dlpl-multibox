@@ -80,6 +80,19 @@ function neop_schreibe_zch (zch:string="A") {
     neop_strip.show()
 }
 
+function neop_schreibe_wort(wort:string|number) {
+   //let wort:string="BaCHINGER#"
+   if (typeof wort == "number") {
+        wort=wort.toString();
+   }
+   
+   for (let b:number=0;b<wort.length;b++) {
+       neop_schreibe_zch(wort[b]);
+       pause (neop.wortPause)
+   }
+}
+
+
 
 function init_zeichen() {
     arr_zeichen_tabelle = [
@@ -127,15 +140,6 @@ function init_zeichen() {
     ]
 }
 
-
-function neop_schreibe_wort(wort:any="LEER") {
-   //let wort:string="BaCHINGER#"
-   wort=wort.toString();
-   for (let b:number=0;b<wort.length;b++) {
-       neop_schreibe_zch(wort[b]);
-       pause (neop.wortPause)
-   }
-}
 function tests () {
     //let arr_zeichen_matrix
     // console.log(arr_zeichen_exists)

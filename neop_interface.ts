@@ -30,7 +30,7 @@ namespace DLPLneopixel {
     }
 
     //% block
-    export function schreibe_wort(w: string, e: MyEnum): void {
+    export function schreibe_wort(w:string|number, e: MyEnum): void {
         // Add code here
         neop_schreibe_wort(w)
     }

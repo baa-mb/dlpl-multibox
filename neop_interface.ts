@@ -16,6 +16,7 @@ enum MyPin {
  * Benutzerdefinierte Blöcke
  */
 //% weight=100 color=#0fbc11 icon="\uf1ec" block="DLPL Neopixel"
+//% groups=['Einstellungen', 'Befehle', 'others']
 namespace DLPLneopixel {
     /**
      * TODO: Beschreibe deine Funktion hier
@@ -24,13 +25,13 @@ namespace DLPLneopixel {
      * @param e Beschreibe die Parameter hier
      */
     //% block
-    export function schreibe_zeichen(z: string, e: MyPin): void {
+    export function schreibe_zeichen(z: string): void {
         // Add code here
         neop_schreibe_zch(z)
     }
 
     //% block
-    export function schreibe_wort(w:string, e: MyPin): void {
+    export function schreibe_wort(w:string): void {
         // Add code here
         neop_schreibe_wort(w)
     }

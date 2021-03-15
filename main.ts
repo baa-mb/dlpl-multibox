@@ -80,11 +80,11 @@ function neop_schreibe_zch (zch:string="A") {
     neop_strip.show()
 }
 
-function neop_schreibe_wort(wort:string|number) {
+function neop_schreibe_wort(wort:string) {
    //let wort:string="BaCHINGER#"
-   if (typeof wort == "number") {
-       wort=wort.toString();
-   }
+//    if (typeof wort == "number") {
+//        wort=wort.toString();
+//    }
    
    for (let b:number=0;b<wort.length;b++) {
        neop_schreibe_zch(wort[b]);

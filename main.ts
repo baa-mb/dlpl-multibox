@@ -135,6 +135,14 @@ function tests () {
     // arr_zeichen_tabelle.forEach (function (wert,index) {
     //     console.log(index + " " + wert.bst)
     // })
+    //neop_schreibe("B")
+
+    // let wort:string="BaCHINGER#"
+    // for (let b:number=0;b<wort.length;b++) {
+    //     neop_schreibe(wort[b]);
+    //     pause (1000)
+    // }
+
 }
 
 
@@ -160,4 +168,6 @@ let neop_strip: neopixel.Strip = null
 let arr_zeichen_tabelle:Array<zch_tab>;
 init_zeichen();
 init_neop()
+
 basic.showIcon(IconNames.Yes)
+//neop_schreibe("A")

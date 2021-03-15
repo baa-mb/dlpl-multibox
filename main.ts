@@ -128,8 +128,9 @@ function init_zeichen() {
 }
 
 
-function neop_schreibe_wort(wort:string="LEER") {
+function neop_schreibe_wort(wort:any="LEER") {
    //let wort:string="BaCHINGER#"
+   wort=wort.toString();
    for (let b:number=0;b<wort.length;b++) {
        neop_schreibe_zch(wort[b]);
        pause (neop.wortPause)

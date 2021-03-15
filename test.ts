@@ -2,4 +2,3 @@
 //neop_schreibe("C")
 pause(2000)
 neop_schreibe_zch("A")
-DLPLneopixel.schreibe_wort(123, MyEnum.One)

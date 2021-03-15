@@ -83,7 +83,7 @@ function neop_schreibe_zch (zch:string="A") {
 function neop_schreibe_wort(wort:string|number) {
    //let wort:string="BaCHINGER#"
    if (typeof wort == "number") {
-        wort=wort.toString();
+       wort=wort.toString();
    }
    
    for (let b:number=0;b<wort.length;b++) {

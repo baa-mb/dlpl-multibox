@@ -48,7 +48,6 @@ function init_neop() {
 }
 
 function neop_pixel_zeichnen (zch:string="A") {
-
     let mx=neop.hardwarepixel[0];
     let my=neop.hardwarepixel[1];
     let zeichen_matrix:Array<number>=[]
@@ -58,9 +57,8 @@ function neop_pixel_zeichnen (zch:string="A") {
     } else {
         zeichen_matrix=arr_zeichen_tabelle.find(elem => elem.bst === 'x').def
     }
-      
 
-    console.log(zeichen_matrix);
+    //console.log(zeichen_matrix);
     if (zch=="#") {
         zeichen_matrix=neop.muster;
     }
@@ -148,7 +146,7 @@ let neop = {
     helligkeit: 50,
     farbe: 0x0000FF,
     softwarepixel: [8,8],
-    muster: [31,31,31,31,31,31,31]   
+    muster: [31,31,17,17,17,31,31]   
 }
 
 interface zch_tab {
@@ -167,12 +165,8 @@ init_zeichen();
 neop.muster=[31,0,0,0,0,0,31]
 init_neop()
 
-
-let wort:string="BaCHINGER"
+let wort:string="BaCHINGER#"
 for (let b:number=0;b<wort.length;b++) {
     neop_pixel_zeichnen(wort[b]);
     pause (1000)
 }
-
-
-

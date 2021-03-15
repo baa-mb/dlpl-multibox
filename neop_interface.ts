@@ -6,9 +6,9 @@
  */
 
 enum MyPin {
-    //% block="Links"
-    Links=0,
-    //% block="Rechts"
+    //% block="Linkes Matrix"
+    links=0,
+    //% block="Rechte Matrix"
     Rechts=1
 }
 

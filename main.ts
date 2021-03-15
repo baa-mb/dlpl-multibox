@@ -5,16 +5,16 @@ input.onButtonPressed(Button.A, function () {
     let mx=neop.hardwarepixel[0];
     let my=neop.hardwarepixel[1];
     //shift=(mx*2 -1 + shift--) % mx;
-    //neop_pixel_zeichnen();
+    //neop_schreibe();
     //bst_nr++;
     let anz=arr_zeichen_tabelle.length
-    //neop_pixel_zeichnen(alphabet[(++bst_nr % anz)])
-    neop_pixel_zeichnen(arr_zeichen_tabelle[(++bst_nr % anz)].bst)
+    //neop_schreibe(alphabet[(++bst_nr % anz)])
+    neop_schreibe(arr_zeichen_tabelle[(++bst_nr % anz)].bst)
 })
 input.onButtonPressed(Button.B, function () {
     neop_reihe(7);
-//    neop_spalte(7)
-    //neop_pixel_zeichnen();
+    //    neop_spalte(7)
+    //neop_schreibe();
 })
 
 input.onButtonPressed(Button.AB, function () {
@@ -25,7 +25,7 @@ input.onButtonPressed(Button.AB, function () {
 
 function neop_reihe(y:number=0) {
     for (let x = 0; x < neop.hardwarepixel[0]; x++) {
-        neop_pixel_zeichnen("#")
+        neop_schreibe("#")
         pause(500)
     }
 }
@@ -33,7 +33,7 @@ function neop_spalte(x:number=0) {
     let mx=neop.hardwarepixel[0];
     let my=neop.hardwarepixel[1];
     for (let y:number = 0; y < neop.hardwarepixel[1]; y++) {
-        neop_pixel_zeichnen("-")
+        neop_schreibe("-")
         shift=(mx*2 -1 + shift--) % mx;
         pause(500)
     }
@@ -47,7 +47,7 @@ function init_neop() {
     neop_strip.show()
 }
 
-function neop_pixel_zeichnen (zch:string="A") {
+function neop_schreibe (zch:string="A") {
     let mx=neop.hardwarepixel[0];
     let my=neop.hardwarepixel[1];
     let zeichen_matrix:Array<number>=[]
@@ -135,11 +135,10 @@ function tests () {
     // arr_zeichen_tabelle.forEach (function (wert,index) {
     //     console.log(index + " " + wert.bst)
     // })
-
 }
-//console.log(zahl +": bit:"+bit+" and-wert: "+Math.pow(2,bit)+ " = logik-> " + (zahl & Math.pow(2,bit)))
 
-let arr_farben=[0xFF0000,0xFFA500,0xFFFF00,0x00FF00,0x0000FF,0x4b0082,0x8a2be2,0xFF00FF,0xFFFFFF,0x000000]
+
+// Variable
 let neop = {
     pin: DigitalPin.P0,
     hardwarepixel: [8,8],
@@ -154,19 +153,11 @@ interface zch_tab {
   def: Array<number>;
 }
 
-basic.showIcon(IconNames.Yes)
+let arr_farben=[0xFF0000,0xFFA500,0xFFFF00,0x00FF00,0x0000FF,0x4b0082,0x8a2be2,0xFF00FF,0xFFFFFF,0x000000]
 let shift=0
 let neop_strip: neopixel.Strip = null
 
-
 let arr_zeichen_tabelle:Array<zch_tab>;
 init_zeichen();
-
-neop.muster=[31,0,0,0,0,0,31]
 init_neop()
-
-let wort:string="BaCHINGER#"
-for (let b:number=0;b<wort.length;b++) {
-    neop_pixel_zeichnen(wort[b]);
-    pause (1000)
-}
+basic.showIcon(IconNames.Yes)

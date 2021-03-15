@@ -167,7 +167,7 @@ let neop = {
     farbe: 0x0000FF,
     softwarepixel: [8,8],
     muster: [31,31,17,17,17,31,31],
-    wortPause: 1000   
+    wortPause: 2000   
 }
 
 interface zch_tab {

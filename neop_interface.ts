@@ -40,5 +40,11 @@ namespace DLPLneopixel {
         neop_schreibe_wort(w)
     }
 
+    //% block="schreibe Zeichen" blockGap=0
+    export function schreibeZeichenNeu(): void {
+        // Add code here neu
+        neop_schreibe_zch("T");
+    }
+    
 
 }

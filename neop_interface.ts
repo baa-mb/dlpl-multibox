@@ -28,7 +28,7 @@ namespace DLPLneopixel {
     //% group="Hauptbefehle"
 
     //% block="schreibe Zeichen" blockGap=0
-    export function schreibeZeichen(z: string): void {
+    export function schreibeZeichen(z: string="A"): void {
         // Add code here
         neop_schreibe_zch(z)
     }

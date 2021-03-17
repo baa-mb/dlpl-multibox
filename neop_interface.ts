@@ -43,7 +43,7 @@ namespace DLPLneopixel {
     //% block="schreibe Zeichen" blockGap=0
     export function schreibeZeichenNeu(): void {
         // Add code here neu
-        neop_schreibe_zch("T");
+        neop_schreibe_zch("X");
     }
     
 

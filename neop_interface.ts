@@ -27,15 +27,15 @@ namespace DLPLneopixel {
     }
     //% group="Hauptbefehle"
 
-    //% block blockGap=0
-    export function schreibe_zeichen(z: string): void {
+    //% block="schreibe Zeichen" blockGap=0
+    export function schreibe_Zeichen(z: string): void {
         // Add code here
         neop_schreibe_zch(z)
     }
 
 
-    //% block blockGap=0
-    export function schreibe_wort(w:string): void {
+    //% block="schreibe Wort" blockGap=0
+    export function schreibeWort(w:string="Hallo"): void {
         // Add code here
         neop_schreibe_wort(w)
     }

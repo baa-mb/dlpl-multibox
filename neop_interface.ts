@@ -26,16 +26,21 @@ namespace DLPLneopixel {
      */
 
     //% group="Grundeinstellungen"
-    //% block
-    export function schreibe_zeichen(z: string): void {
+    //% block weight=100
+    export function NeopixelInit(z: string): void {
         // Add code here
         neop_schreibe_zch(z)
     }
     //% group="Hauptbefehle"
-    //% block
+    //% 
+    //% block blockGap=0
     export function schreibe_wort(w:string): void {
         // Add code here
         neop_schreibe_wort(w)
+    }
+    export function schreibe_zeichen(z: string): void {
+        // Add code here
+        neop_schreibe_zch(z)
     }
 
 

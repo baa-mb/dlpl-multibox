@@ -26,10 +26,10 @@ namespace DLPLneopixel {
         neop_schreibe_zch(z)
     }
 
-    //% block="show color $color"
+    //% block="setze Farbe $color"
     //% color.shadow="colorNumberPicker"
-    export function showColor(color: number) {
-
+    export function setColor(color: number) {
+        console.log(color)
     }
 
 

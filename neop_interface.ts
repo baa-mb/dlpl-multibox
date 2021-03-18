@@ -37,7 +37,7 @@ namespace DLPLneopixel {
 
     //% group="Hauptbefehle"
 
-    //% block="schreibe Zeichen" blockGap=0
+    //% block blockGap=0
     export function schreibeZeichen(z:string): void {
         // Add code here neu
         neop_schreibe_zch(z);

@@ -25,6 +25,16 @@ namespace DLPLneopixel {
         // Add code here
         neop_schreibe_zch(z)
     }
+
+    //% block="show color $color"
+    //% color.shadow="colorNumberPicker"
+    export function showColor(color: number) {
+
+    }
+
+
+
+
     //% group="Hauptbefehle"
 
     //% block="schreibe Zeichen" blockGap=0
@@ -43,7 +53,7 @@ namespace DLPLneopixel {
     //% block="schreibe Zeichen" blockGap=0
     export function schreibeZeichenNeu(): void {
         // Add code here neu
-        neop_schreibe_zch("X");
+        neop_schreibe_zch("Z");
     }
     
 

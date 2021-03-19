@@ -22,7 +22,7 @@ namespace DLPLneopixel {
     //% group="Grundeinstellungen"
     //% weight=100
     //% txt.defl="ABC"
-    //% block="schreibe auf Streifen = $snr einen Text = $txt mit Farbe = $color"
+    //% block="schreibe auf Pixelmatrix = $snr den Text = $txt mit Farbe = $color"
     //% color.shadow="colorNumberPicker"
     export function schreibeText(snr:number,txt: string,color:number): void {
         neop_schreibe_zch(snr,txt,color)

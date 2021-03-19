@@ -176,7 +176,7 @@ function neop_schreibe_zch (snr:number,zch_str:string="A",color:number) {
        }        
         arr_neop_strips[snr].clear()
         arr_neop_strips[snr].show()
-//  arr_neop_strips[snr].showColor(color)
+
         zeichen_matrix.forEach (function(zahl,zeile) {
             //console.log("zahl= "+zahl+" Zeile="+zeile+" mx="+mx)
             for (let bit=0;bit<mx;bit++) {
@@ -192,7 +192,7 @@ function neop_schreibe_zch (snr:number,zch_str:string="A",color:number) {
         })
         arr_neop_strips[snr].show()
         if (is_type==1) {
-            pause (arr_neop_prop[snr].wortPause)
+            pause (strip_pause)
         }
     }    
 }
@@ -200,30 +200,36 @@ function neop_schreibe_zch (snr:number,zch_str:string="A",color:number) {
 
 // Create and INIT #####################################
 function init_neop_create(snr:number) {
+    let anz=arr_neop_strips.length;
     let pin=arr_neop_prop[snr].pin;
-    let farbe=arr_neop_prop[snr].farbe;
+    let farbe=neopixel.colors(NeoPixelColors.Red);
     let pixelAnzahl=arr_neop_prop[snr].hwMatrix[0] * arr_neop_prop[snr].hwMatrix [1];
-    arr_neop_strips.push(neopixel.create(pin, pixelAnzahl, farbe))
-}
 
+    let strip=neopixel.create(pin, pixelAnzahl, NeoPixelMode.RGB)
+    arr_neop_strips.push(strip)
 
-function init_one_strip(snr:number) {
-    arr_neop_strips[snr].setBrightness(arr_neop_prop[snr].helligkeit)
-    arr_neop_strips[snr].clear()
-    arr_neop_strips[snr].show()
+    strip.setBrightness(strip_helligkeit)
+    strip.clear()
+    strip.show()
+
 }
 
 
 function init_strip_serie(system_anzahl:number) {
     for (let i=0;i<system_anzahl;i++) {
         init_neop_create(i);
-        init_one_strip(i);
+        // init_one_strip(i);
     }
 }
 function strip_data_save() {
-    arr_neop_prop.push({pin:DigitalPin.P1,hwMatrix:[8,4],helligkeit:50,farbe:0x0000ff,wortPause:2000}) 
-    arr_neop_prop.push({pin:DigitalPin.P2,hwMatrix:[8,2],helligkeit:50,farbe:0x00ff00,wortPause:2000}) 
-    arr_neop_prop.push({pin:DigitalPin.P8,hwMatrix:[8,2],helligkeit:50,farbe:0xff0000,wortPause:2000}) 
+    arr_neop_prop.push({pin:DigitalPin.P1,hwMatrix:[8,4]}) 
+    arr_neop_prop.push({pin:DigitalPin.P2,hwMatrix:[8,2]}) 
+    arr_neop_prop.push({pin:DigitalPin.P8,hwMatrix:[8,2]}) 
+}
+
+function init_all_strip(helligkeit:number,zch_pause:number) {
+    strip_helligkeit=helligkeit;
+    strip_pause=zch_pause;
 }
 
 
@@ -241,9 +247,6 @@ function test() {
 interface neop  {
     pin: number;
     hwMatrix: Array<number>;
-    helligkeit: number;
-    farbe: number;
-    wortPause: number;   
 }
 
 interface zch_tab {
@@ -253,7 +256,10 @@ interface zch_tab {
 
 let arr_farben=[0xFF0000,0xFFA500,0xFFFF00,0x00FF00,0x0000FF,0x4b0082,0x8a2be2,0xFF00FF,0xFFFFFF,0x000000]
 let bst_muster=[31,31,31,31,31,31,31,31];
-let shift=0
+let shift:number=0
+let strip_helligkeit:number=100;
+let strip_pause:number=2000;
+let anz_strips_vorh:number=2;
 
 let arr_neop_strips:Array<neopixel.Strip>=[]
 let arr_neop_prop:Array<neop>=[]
@@ -269,5 +275,5 @@ init_strip_serie(neo_strip_anz);
 basic.showIcon(IconNames.Yes)
 // ende Initialisierung
 
-//test();
+test();
 

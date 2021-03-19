@@ -21,9 +21,9 @@ namespace DLPLneopixel {
 
     //% group="Grundeinstellungen"
     //% block weight=100
-    export function neopixelInit(z: string): void {
-        // Add code here
-        neop_schreibe_zch(0,"A")
+    //% z.defl="AB"
+    export function schreibeText(z: string): void {
+        neop_schreibe_zch(0,z)
     }
 
     //% block="setze Farbe $color"

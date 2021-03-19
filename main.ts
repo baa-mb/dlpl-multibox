@@ -122,24 +122,24 @@ input.onButtonPressed(Button.AB, function () {
 })
 
 
-function neop_reihe(snr:number,y:number=0) {
-    for (let x = 0; x < arr_neop_prop[snr].hwMatrix[0]; x++) {
-        neop_schreibe_zch(snr,"#")
-        pause(500)
-    }
-}
-function neop_spalte(snr:number,x:number=0) {
-    let mx=arr_neop_prop[snr].hwMatrix[0];
-    let my=arr_neop_prop[snr].hwMatrix[1];
-    for (let y:number = 0; y < arr_neop_prop[snr].hwMatrix[1]; y++) {
-        neop_schreibe_zch(snr,"-")
-        shift=(mx*2 -1 + shift--) % mx;
-        pause(500)
-    }
-}
+// function neop_reihe(snr:number,y:number=0) {
+//     for (let x = 0; x < arr_neop_prop[snr].hwMatrix[0]; x++) {
+//         neop_schreibe_zch(snr,"#")
+//         pause(500)
+//     }
+// }
+// function neop_spalte(snr:number,x:number=0) {
+//     let mx=arr_neop_prop[snr].hwMatrix[0];
+//     let my=arr_neop_prop[snr].hwMatrix[1];
+//     for (let y:number = 0; y < arr_neop_prop[snr].hwMatrix[1]; y++) {
+//         neop_schreibe_zch(snr,"-")
+//         shift=(mx*2 -1 + shift--) % mx;
+//         pause(500)
+//     }
+// }
 
 
-function neop_schreibe_zch (snr:number,zch_str:string="A") {
+function neop_schreibe_zch (snr:number,zch_str:string="A",color:number) {
     let zeichen_matrix:Array<number>=[]
 
     let mx=arr_neop_prop[snr].hwMatrix[0];
@@ -147,6 +147,10 @@ function neop_schreibe_zch (snr:number,zch_str:string="A") {
     
     let is_type=0 
     
+    arr_neop_strips[snr].showColor(neopixel.colors(color))
+
+
+
     let zch_len=zch_str.length
     if (zch_len>1) {
         is_type=1; //wort
@@ -226,9 +230,9 @@ function strip_data_save() {
 function test() {
     console.log(arr_zeichen_tabelle.length);
     
-    neop_schreibe_zch(0,"31,17,17,31,31")
-    neop_schreibe_zch(1,"AB")
-    neop_schreibe_zch(2,"12340")
+    neop_schreibe_zch(0,"31,17,17,31,31",NeoPixelColors.Red)
+    neop_schreibe_zch(1,"AB",NeoPixelColors.Green)
+    neop_schreibe_zch(2,"12340",NeoPixelColors.Blue)
 }
 
 

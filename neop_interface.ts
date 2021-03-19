@@ -22,10 +22,10 @@ namespace DLPLneopixel {
     //% group="Grundeinstellungen"
     //% weight=100
     //% z.defl="AB"
-    //% block="schreibe Text = $z auf Streifen = $st mit Farbe = $f"
-    //% f.shadow="colorWheelHsvPicker"
-    export function schreibeText(z: string,st:number,f:number): void {
-        neop_schreibe_zch(0,z)
+    //% block="schreibe Text = $z auf Streifen = $st mit Farbe = $color"
+    //% color.shadow="colorWheelHsvPicker"
+    export function schreibeText(z: string,st:number,color:number): void {
+        neop_schreibe_zch(0,z,color)
     }
 
     //% block="setze Farbe $color"
@@ -42,21 +42,6 @@ namespace DLPLneopixel {
     //% block blockGap=0
     export function schreibeZeichen(z:string): void {
         // Add code here neu
-        neop_schreibe_zch(0,z);
+        neop_schreibe_zch(0,z,NeoPixelColors.Green);
     }
-
-
-    //% block="schreibe Wort" blockGap=0
-    export function schreibeWort(w:string): void {
-        // Add code here
-        //neop_schreibe_wort(0,w)
-    }
-
-    //% block="schreibe Zeichen" blockGap=0
-    export function schreibeZeichenNeu(): void {
-        // Add code here neu
-        neop_schreibe_zch(0,"Z");
-    }
-    
-
 }

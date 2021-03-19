@@ -87,6 +87,7 @@ function init_alphabet() {
 	{bst:"y",def: [0,0,17,9,6,4,24]},
 	{bst:"z",def: [0,0,31,2,4,8,31]},
 */
+
 /* Micro:bit 2.0
         {bst:"#",def: [10,10,31,10,31,10,10]},
         {bst:"$",def: [4,15,20,14,5,30,4]},
@@ -113,10 +114,11 @@ function init_alphabet() {
 
 
 input.onButtonPressed(Button.AB, function () {
-    for (let n=0;n<neo_strip_anz;n++) {
-        arr_neop_strips[n].clear()
-        arr_neop_strips[n].show()
-    }
+    let s:number=0;
+    //for (let s=0;s<neo_strip_anz;s++) {
+        arr_neop_strips[s].clear()
+        arr_neop_strips[s].show()
+    //}
 })
 
 

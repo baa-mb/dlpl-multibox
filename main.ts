@@ -147,7 +147,7 @@ function neop_schreibe_zch (snr:number,zch_str:string="A",color:number) {
     
     let is_type=0 
     
-    arr_neop_strips[snr].showColor(color)
+   
 
 
 
@@ -176,7 +176,7 @@ function neop_schreibe_zch (snr:number,zch_str:string="A",color:number) {
        }        
         arr_neop_strips[snr].clear()
         arr_neop_strips[snr].show()
-
+ arr_neop_strips[snr].showColor(color)
         zeichen_matrix.forEach (function(zahl,zeile) {
             //console.log("zahl= "+zahl+" Zeile="+zeile+" mx="+mx)
             for (let bit=0;bit<mx;bit++) {

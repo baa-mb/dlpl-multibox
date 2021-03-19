@@ -134,40 +134,62 @@ function neop_spalte(snr:number,x:number=0) {
 }
 
 
-function neop_schreibe_zch (snr:number,zch:string="A") {
+function neop_schreibe_zch (snr:number,zch_str:string="A") {
+    let zeichen_matrix:Array<number>=[]
+
     let mx=arr_neop_prop[snr].hwMatrix[0];
     let my=arr_neop_prop[snr].hwMatrix[1];
-    let zeichen_matrix:Array<number>=[]
-    let found=arr_zeichen_tabelle.find(elem => elem.bst === zch);
-    if (found) {
-        zeichen_matrix=found.def.slice(0,my)
-    } else {
-        zeichen_matrix=arr_zeichen_tabelle.find(elem => elem.bst === 'x').def
-    }
-
-    //console.log(zeichen_matrix);
-    if (zch=="^") {
-        // zeichen_matrix=arr_neop_prop[snr].muster;
-        zeichen_matrix=bst_muster;
-    }
     
-    arr_neop_strips[snr].clear()
-    arr_neop_strips[snr].show()
-    //basic.showString(zch)
-
-    zeichen_matrix.forEach (function(zahl,zeile) {
-        //console.log("zahl= "+zahl+" Zeile="+zeile+" mx="+mx)
-        for (let bit=0;bit<mx;bit++) {
-            let z=zeile, b=bit //7- minus
-            //b=z, z=bit
-            //b=z, z=mx-1-bit
-            if (zahl & Math.pow(2,(bit+shift) % mx)) {
-                let px = z * mx + ((z % 2) ? (mx-1-b):b)
-                arr_neop_strips[snr].setPixelColor(px, arr_neop_prop[snr].farbe)
-            }
+    let is_type=0 
+    
+    let zch_len=zch_str.length
+    if (zch_len>1) {
+        is_type=1; //wort
+        //let arr_split;
+        let arr_split=zch_str.split(",")
+        if (arr_split.length>4) {
+            is_type=2; //array
+            //zeichen_matrix=arr_split.map(wert => function ():number {return Number(wert)} );
+            zeichen_matrix=arr_split.map(wert => parseInt(wert));
         }
-    })
-    arr_neop_strips[snr].show()
+    } 
+    
+    for (let n=0;n<zch_len;n++) {
+        let zch = zch_str[n]
+        let found=arr_zeichen_tabelle.find(elem => elem.bst === zch);
+        if (found) {
+            zeichen_matrix=found.def.slice(0,my)
+        } else {
+            zeichen_matrix=arr_zeichen_tabelle.find(elem => elem.bst === '?').def
+        }
+
+        //console.log(zeichen_matrix);
+        if (zch=="^") {
+            // zeichen_matrix=arr_neop_prop[snr].muster;
+            zeichen_matrix=bst_muster;
+        }
+        
+        arr_neop_strips[snr].clear()
+        arr_neop_strips[snr].show()
+        //basic.showString(zch)
+
+        zeichen_matrix.forEach (function(zahl,zeile) {
+            //console.log("zahl= "+zahl+" Zeile="+zeile+" mx="+mx)
+            for (let bit=0;bit<mx;bit++) {
+                let z=zeile, b=bit //7- minus
+                //b=z, z=bit
+                //b=z, z=mx-1-bit
+                if (zahl & Math.pow(2,(bit+shift) % mx)) {
+                    let px = z * mx + ((z % 2) ? (mx-1-b):b)
+                    arr_neop_strips[snr].setPixelColor(px, arr_neop_prop[snr].farbe)
+                }
+            }
+        })
+        arr_neop_strips[snr].show()
+        if (is_type==1) {
+            pause (arr_neop_prop[snr].wortPause)
+        }
+    }    
 }
 
 function neop_schreibe_wort(snr:number,wort:string) {
@@ -211,9 +233,11 @@ function strip_data_save() {
 // testbetrieb
 function test() {
     console.log(arr_zeichen_tabelle.length);
+    
+    neop_schreibe_zch(1,"AB")
     neop_schreibe_zch(0,"ABC")
-    neop_schreibe_zch(1,"ABC")
-    neop_schreibe_zch(2,"A")
+    
+    neop_schreibe_zch(2,"A2")
     //neop_schreibe_wort(0,"bach")
 }
 

@@ -47,7 +47,7 @@ namespace DLPLneopixel {
     //% block="schreibe Wort" blockGap=0
     export function schreibeWort(w:string): void {
         // Add code here
-        neop_schreibe_wort(0,w)
+        //neop_schreibe_wort(0,w)
     }
 
     //% block="schreibe Zeichen" blockGap=0

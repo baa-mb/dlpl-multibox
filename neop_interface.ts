@@ -21,11 +21,11 @@ namespace DLPLneopixel {
 
     //% group="Grundeinstellungen"
     //% weight=100
-    //% z.defl="AB"
-    //% block="schreibe Text = $z auf Streifen = $st mit Farbe = $color"
-    //% color.shadow="colorWheelHsvPicker"
-    export function schreibeText(z: string,st:number,color:number): void {
-        neop_schreibe_zch(0,z,color)
+    //% txt.defl="ABC"
+    //% block="schreibe auf Streifen = $snr einen Text = $txt mit Farbe = $color"
+    //% color.shadow="colorNumberPicker"
+    export function schreibeText(snr:number,txt: string,color:number): void {
+        neop_schreibe_zch(snr,txt,color)
     }
 
     //% block="setze Farbe $color"

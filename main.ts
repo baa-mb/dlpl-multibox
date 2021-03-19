@@ -9,7 +9,7 @@ input.onButtonPressed(Button.A, function () {
     //bst_nr++;
     let anz=arr_zeichen_tabelle.length
     //neop_schreibe_zch(alphabet[(++bst_nr % anz)])
-    neop_schreibe_zch(arr_zeichen_tabelle[(++bst_nr % anz)].bst)
+    neop_schreibe_zch(akt_snr,arr_zeichen_tabelle[(++bst_nr % anz)].bst)
 })
 input.onButtonPressed(Button.B, function () {
     neop_reihe(7);
@@ -18,36 +18,41 @@ input.onButtonPressed(Button.B, function () {
 })
 
 input.onButtonPressed(Button.AB, function () {
-    neop_strip.clear()
-    neop_strip.show()
+    arr_neop_strip[0].clear()
+    arr_neop_strip[0].show()
 })
 
 
-function neop_reihe(y:number=0) {
+function neop_reihe(snr:number,y:number=0) {
     for (let x = 0; x < neop.hardwarepixel[0]; x++) {
-        neop_schreibe_zch("#")
+        neop_schreibe_zch(snr,"#")
         pause(500)
     }
 }
-function neop_spalte(x:number=0) {
+function neop_spalte(snr:number,x:number=0) {
     let mx=neop.hardwarepixel[0];
     let my=neop.hardwarepixel[1];
     for (let y:number = 0; y < neop.hardwarepixel[1]; y++) {
-        neop_schreibe_zch("-")
+        neop_schreibe_zch(snr,"-")
         shift=(mx*2 -1 + shift--) % mx;
         pause(500)
     }
 }
 
-function init_neop() {
-    let hardwarepixelanzahl=neop.hardwarepixel[0]*neop.hardwarepixel[1];
-    neop_strip = neopixel.create(neop.pin, hardwarepixelanzahl, neop.farbe)
-    neop_strip.setBrightness(neop.helligkeit)
-    neop_strip.clear()
-    neop_strip.show()
+function init_neop_create(pin:number=1, matrix:Array<number>, farbe:number) {
+    let hardwarepixelanzahl=matrix[0]*matrix[1];
+    arr_neop_strip.push(neopixel.create(pin, hardwarepixelanzahl, farbe))
+
 }
 
-function neop_schreibe_zch (zch:string="A") {
+
+function init_neop_init(snr:number) {
+    arr_neop_strip[snr].setBrightness(neop.helligkeit)
+    arr_neop_strip[snr].clear()
+    arr_neop_strip[snr].show()
+}
+
+function neop_schreibe_zch (snr:number,zch:string="A") {
     let mx=neop.hardwarepixel[0];
     let my=neop.hardwarepixel[1];
     let zeichen_matrix:Array<number>=[]
@@ -63,8 +68,8 @@ function neop_schreibe_zch (zch:string="A") {
         zeichen_matrix=neop.muster;
     }
     
-    neop_strip.clear()
-    neop_strip.show()
+    arr_neop_strip[snr].clear()
+    arr_neop_strip[snr].show()
     //basic.showString(zch)
     zeichen_matrix.forEach (function(zahl,zeile) {
         for (let bit=0;bit<mx;bit++) {
@@ -73,21 +78,21 @@ function neop_schreibe_zch (zch:string="A") {
             //b=z, z=mx-1-bit
             if (zahl & Math.pow(2,(bit+shift) % mx)) {
                 let px = z * my + ((z % 2) ? (mx-1-b):b)
-                neop_strip.setPixelColor(px, neop.farbe)
+                arr_neop_strip[snr].setPixelColor(px, neop.farbe)
             }
         }
     })
-    neop_strip.show()
+    arr_neop_strip[snr].show()
 }
 
-function neop_schreibe_wort(wort:string) {
+function neop_schreibe_wort(snr:number,wort:string) {
    //let wort:string="BaCHINGER#"
 //    if (typeof wort == "number") {
 //        wort=wort.toString();
 //    }
    
    for (let b:number=0;b<wort.length;b++) {
-       neop_schreibe_zch(wort[b]);
+       neop_schreibe_zch(snr,wort[b]);
        pause (neop.wortPause)
    }
 }
@@ -110,7 +115,7 @@ function init_zeichen() {
 
         {bst:"J",def: [17,17,17,31,17,17,17]},
         {bst:"K",def: [17,17,17,31,17,17,17]},
-        {bst:"L",def: [17,17,17,31,17,17,17]},
+        {bst:"L",def: [16,16,16,16,16,31]},
         {bst:"M",def: [17,17,17,31,17,17,17]},
         {bst:"N",def: [17,17,17,31,17,17,17]},
         {bst:"O",def: [17,17,17,31,17,17,17]},
@@ -161,7 +166,7 @@ function tests () {
 
 // Variable
 let neop = {
-    pin: DigitalPin.P0,
+    pin: DigitalPin.P1,
     hardwarepixel: [8,8],
     helligkeit: 50,
     farbe: 0x0000FF,
@@ -176,12 +181,22 @@ interface zch_tab {
 }
 
 let arr_farben=[0xFF0000,0xFFA500,0xFFFF00,0x00FF00,0x0000FF,0x4b0082,0x8a2be2,0xFF00FF,0xFFFFFF,0x000000]
-let shift=0
-let neop_strip: neopixel.Strip = null
-
 let arr_zeichen_tabelle:Array<zch_tab>;
 init_zeichen();
-init_neop()
+
+let shift=0
+// let arr_neop_strip:Array<neopixel.Strip>
+
+//let arr_neop_strip=[]
+let arr_neop_strip:Array<neopixel.Strip>=[]
+
+init_neop_create(DigitalPin.P1,[8,5],NeoPixelColors.Red)
+init_neop_init(0)
 
 basic.showIcon(IconNames.Yes)
-//neop_schreibe_zch("A")
+
+
+neop_schreibe_zch(0,"L")
+
+
+let akt_snr=0;

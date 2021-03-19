@@ -23,7 +23,7 @@ namespace DLPLneopixel {
     //% block weight=100
     export function neopixelInit(z: string): void {
         // Add code here
-        neop_schreibe_zch(z)
+        neop_schreibe_zch(0,z)
     }
 
     //% block="setze Farbe $color"
@@ -40,20 +40,20 @@ namespace DLPLneopixel {
     //% block blockGap=0
     export function schreibeZeichen(z:string): void {
         // Add code here neu
-        neop_schreibe_zch(z);
+        neop_schreibe_zch(0,z);
     }
 
 
     //% block="schreibe Wort" blockGap=0
     export function schreibeWort(w:string): void {
         // Add code here
-        neop_schreibe_wort(w)
+        neop_schreibe_wort(0,w)
     }
 
     //% block="schreibe Zeichen" blockGap=0
     export function schreibeZeichenNeu(): void {
         // Add code here neu
-        neop_schreibe_zch("Z");
+        neop_schreibe_zch(0,"Z");
     }
     
 

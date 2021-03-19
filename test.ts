@@ -4,5 +4,5 @@
 // neop_schreibe_zch("A")
 // DLPLneopixel.schreibe_wort("CC")
 input.onButtonPressed(Button.A, function () {
-    neop_schreibe_zch("A")
+    neop_schreibe_zch(0,"A")
 })

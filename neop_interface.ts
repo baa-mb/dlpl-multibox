@@ -20,9 +20,11 @@ enum MyPin {
 namespace DLPLneopixel {
 
     //% group="Grundeinstellungen"
-    //% block weight=100
+    //% weight=100
     //% z.defl="AB"
-    export function schreibeText(z: string): void {
+    //% block="schreibe Text = $z auf Streifen = $st mit Farbe = $f"
+    //% f.shadow="colorWheelHsvPicker"
+    export function schreibeText(z: string,st:number,f:number): void {
         neop_schreibe_zch(0,z)
     }
 

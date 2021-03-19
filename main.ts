@@ -2,7 +2,7 @@
 
 function init_alphabet() {
     arr_zeichen_tabelle = [
-        {bst:"^",def: [14,17,1,2,4,0,4]},
+        {bst:"?",def: [14,17,1,2,4,0,4]},
         {bst:"A",def: [14,17,17,31,17,17,17]},
         {bst:"B",def: [30,17,17,30,17,17,30]},
         {bst:"C",def: [14,17,16,16,16,17,14]},
@@ -36,6 +36,29 @@ function init_alphabet() {
         {bst:"ö",def: [10,0,0,14,17,17,14]},
         {bst:"ü",def: [10,0,0,17,17,17,14]},
         {bst:"Z",def: [31,1,2,4,8,16,31]},
+        {bst:"0",def: [14,17,19,21,25,17,14]},
+        {bst:"1",def: [4,12,4,4,4,4,14]},
+        {bst:"2",def: [14,17,1,2,4,8,31]},
+        {bst:"3",def: [31,2,4,2,1,17,14]},
+        {bst:"4",def: [2,6,10,18,31,2,2]},
+        {bst:"5",def: [31,16,30,1,1,17,14]},
+        {bst:"6",def: [6,8,16,30,17,17,14]},
+        {bst:"7",def: [31,1,2,4,4,4,4]},
+        {bst:"8",def: [14,17,17,14,17,17,14]},
+        {bst:"9",def: [14,17,17,15,1,2,12]},
+        {bst:"!",def: [4,4,4,4,4,0,4]},
+        {bst:"?",def: [14,17,1,2,4,0,4]},
+        {bst:".",def: [0,0,0,0,0,12,12]},
+        {bst:",",def: [14,17,1,2,4,0,4]},
+        {bst:"*",def: [0,0,4,21,14,21,4]},
+        {bst:"+",def: [0,4,21,14,21,4,0]},
+        {bst:"-",def: [0,0,0,31,0,0]},
+        {bst:"=",def: [0,0,31,0,31,0,0]},
+        {bst:"≠",def: [1,2,31,4,31,8,16]},
+        {bst:":",def: [0,12,12,0,12,12,0]},
+        {bst:"%",def: [24,25,2,4,8,19,3]},
+
+/*
 
 	{bst:"a",def: [0,0,14,1,15,17,15]},
 	{bst:"b",def: [16,16,22,25,17,17,14]},
@@ -63,28 +86,6 @@ function init_alphabet() {
 	{bst:"x",def: [0,0,25,6,4,12,19]},
 	{bst:"y",def: [0,0,17,9,6,4,24]},
 	{bst:"z",def: [0,0,31,2,4,8,31]},
-/*
-        {bst:"0",def: [14,17,19,21,25,17,14]},
-        {bst:"1",def: [4,12,4,4,4,4,14]},
-        {bst:"2",def: [14,17,1,2,4,8,31]},
-        {bst:"3",def: [31,2,4,2,1,17,14]},
-        {bst:"4",def: [2,6,10,18,31,2,2]},
-        {bst:"5",def: [31,16,30,1,1,17,14]},
-        {bst:"6",def: [6,8,16,30,17,17,14]},
-        {bst:"7",def: [31,1,2,4,4,4,4]},
-        {bst:"8",def: [14,17,17,14,17,17,14]},
-        {bst:"9",def: [14,17,17,15,1,2,12]},
-        {bst:"!",def: [4,4,4,4,4,0,4]},
-        {bst:"?",def: [14,17,1,2,4,0,4]},
-        {bst:".",def: [0,0,0,0,0,12,12]},
-        {bst:",",def: [14,17,1,2,4,0,4]},
-        {bst:"*",def: [0,0,4,21,14,21,4]},
-        {bst:"+",def: [0,4,21,14,21,4,0]},
-        {bst:"-",def: [0,0,0,31,0,0]},
-        {bst:"=",def: [0,0,31,0,31,0,0]},
-        {bst:"≠",def: [1,2,31,4,31,8,16]},
-        {bst:":",def: [0,12,12,0,12,12,0]},
-        {bst:"%",def: [24,25,2,4,8,19,3]},
 */
 /* Micro:bit 2.0
         {bst:"#",def: [10,10,31,10,31,10,10]},
@@ -112,8 +113,10 @@ function init_alphabet() {
 
 
 input.onButtonPressed(Button.AB, function () {
-    arr_neop_strips[0].clear()
-    arr_neop_strips[0].show()
+    for (let n=0;n<neo_strip_anz;n++) {
+        arr_neop_strips[n].clear()
+        arr_neop_strips[n].show()
+    }
 })
 
 
@@ -151,27 +154,22 @@ function neop_schreibe_zch (snr:number,zch_str:string="A") {
             is_type=2; //array
             //zeichen_matrix=arr_split.map(wert => function ():number {return Number(wert)} );
             zeichen_matrix=arr_split.map(wert => parseInt(wert));
+            zch_len=1;
         }
     } 
     
     for (let n=0;n<zch_len;n++) {
-        let zch = zch_str[n]
-        let found=arr_zeichen_tabelle.find(elem => elem.bst === zch);
-        if (found) {
-            zeichen_matrix=found.def.slice(0,my)
-        } else {
-            zeichen_matrix=arr_zeichen_tabelle.find(elem => elem.bst === '?').def
-        }
-
-        // //console.log(zeichen_matrix);
-        // if (zch=="^") {
-        //     // zeichen_matrix=arr_neop_prop[snr].muster;
-        //     zeichen_matrix=bst_muster;
-        // }
-        
+        if (is_type<2) { //no array
+            let zch:string = zch_str[n]
+            let found=arr_zeichen_tabelle.find(elem => elem.bst === zch);
+            if (found != undefined) {
+                zeichen_matrix=found.def.slice(0,my)
+            } else {
+                zeichen_matrix=arr_zeichen_tabelle.find(elem => elem.bst === '?').def
+            }
+       }        
         arr_neop_strips[snr].clear()
         arr_neop_strips[snr].show()
-        //basic.showString(zch)
 
         zeichen_matrix.forEach (function(zahl,zeile) {
             //console.log("zahl= "+zahl+" Zeile="+zeile+" mx="+mx)
@@ -191,14 +189,6 @@ function neop_schreibe_zch (snr:number,zch_str:string="A") {
         }
     }    
 }
-
-function neop_schreibe_wort(snr:number,wort:string) {
-   for (let b:number=0;b<wort.length;b++) {
-       neop_schreibe_zch(snr,wort[b]);
-       pause (arr_neop_prop[snr].wortPause)
-   }
-}
-
 
 
 // Create and INIT #####################################
@@ -234,10 +224,9 @@ function strip_data_save() {
 function test() {
     console.log(arr_zeichen_tabelle.length);
     
+    neop_schreibe_zch(0,"31,17,17,31,31")
     neop_schreibe_zch(1,"AB")
-    neop_schreibe_zch(0,"ABC")
-    
-    neop_schreibe_zch(2,"A2")
+    neop_schreibe_zch(2,"12340")
     //neop_schreibe_wort(0,"bach")
 }
 
@@ -271,7 +260,7 @@ let neo_strip_anz:number=3;
 init_alphabet();
 strip_data_save();
 init_strip_serie(neo_strip_anz);
-basic.showIcon(IconNames.Happy)
+basic.showIcon(IconNames.Yes)
 // ende Initialisierung
 
 test();

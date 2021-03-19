@@ -147,7 +147,7 @@ function neop_schreibe_zch (snr:number,zch_str:string="A",color:number) {
     
     let is_type=0 
     
-    arr_neop_strips[snr].showColor(neopixel.colors(color))
+    arr_neop_strips[snr].showColor(color)
 
 
 

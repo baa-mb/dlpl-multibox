@@ -6,3 +6,4 @@
 input.onButtonPressed(Button.A, function () {
     neop_schreibe_zch(0,"A")
 })
+DLPLneopixel.neopixelInit("Bach")

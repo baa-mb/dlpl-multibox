@@ -23,7 +23,7 @@ namespace DLPLneopixel {
     //% block weight=100
     export function neopixelInit(z: string): void {
         // Add code here
-        neop_schreibe_zch(0,"B")
+        neop_schreibe_zch(0,"A")
     }
 
     //% block="setze Farbe $color"

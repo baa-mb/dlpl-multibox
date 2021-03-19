@@ -1,6 +1,6 @@
 
 
-function init_zeichen() {
+function init_alphabet() {
     arr_zeichen_tabelle = [
         {bst:"°",def: [14,17,1,2,4,0,4]},
         {bst:"A",def: [14,17,17,31,17,17,17]},
@@ -153,7 +153,7 @@ function init_neop_create(snr:number) {
 }
 
 
-function init_neop_init(snr:number) {
+function init_one_strip(snr:number) {
     arr_neop_strips[snr].setBrightness(arr_neop_prop[snr].helligkeit)
     arr_neop_strips[snr].clear()
     arr_neop_strips[snr].show()
@@ -204,11 +204,18 @@ function neop_schreibe_wort(snr:number,wort:string) {
 function init_strip_serie(system_anzahl:number) {
     for (let i=0;i<system_anzahl;i++) {
         init_neop_create(i);
-        init_neop_init(i);
+        init_one_strip(i);
     }
 }
+function strip_data_save() {
+    arr_neop_prop.push({pin:DigitalPin.P1,hwMatrix:[8,2],helligkeit:50,farbe:0x0000ff,wortPause:2000}) 
+    arr_neop_prop.push({pin:DigitalPin.P2,hwMatrix:[8,2],helligkeit:50,farbe:0x00ff00,wortPause:2000}) 
+    arr_neop_prop.push({pin:DigitalPin.P8,hwMatrix:[8,2],helligkeit:50,farbe:0xff0000,wortPause:2000}) 
+}
 
-// Variable
+
+
+// variable ########################################
 interface neop  {
     pin: number;
     hwMatrix: Array<number>;
@@ -223,24 +230,25 @@ interface zch_tab {
 }
 
 let arr_farben=[0xFF0000,0xFFA500,0xFFFF00,0x00FF00,0x0000FF,0x4b0082,0x8a2be2,0xFF00FF,0xFFFFFF,0x000000]
-let arr_zeichen_tabelle:Array<zch_tab>;
-init_zeichen();
-
 let shift=0
 
 let arr_neop_strips:Array<neopixel.Strip>=[]
 let arr_neop_prop:Array<neop>=[]
 let strip_anz:number=0;
 let bst_muster=[31,31,17,17,17,31,31];
+let arr_zeichen_tabelle:Array<zch_tab>;
 
-arr_neop_prop.push({pin:DigitalPin.P1,hwMatrix:[8,2],helligkeit:50,farbe:0x0000ff,wortPause:2000}) 
-arr_neop_prop.push({pin:DigitalPin.P2,hwMatrix:[8,2],helligkeit:50,farbe:0x00ff00,wortPause:2000}) 
-arr_neop_prop.push({pin:DigitalPin.P8,hwMatrix:[8,2],helligkeit:50,farbe:0xff0000,wortPause:2000}) 
+// ende variable
+
+//beginn initialisierung ############################
+init_alphabet();
+strip_data_save();
+console.log(arr_zeichen_tabelle.length);
 
 init_strip_serie(3);
+// ende Initialisierung
 
 basic.showIcon(IconNames.Yes)
-
 
 neop_schreibe_zch(0,"a")
 neop_schreibe_zch(1,"c")

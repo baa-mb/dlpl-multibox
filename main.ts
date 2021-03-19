@@ -123,15 +123,15 @@ input.onButtonPressed(Button.AB, function () {
 
 
 // function neop_reihe(snr:number,y:number=0) {
-//     for (let x = 0; x < arr_neop_prop[snr].hwMatrix[0]; x++) {
+//     for (let x = 0; x < arr_neop_settings[snr].hwMatrix[0]; x++) {
 //         neop_schreibe_zch(snr,"#")
 //         pause(500)
 //     }
 // }
 // function neop_spalte(snr:number,x:number=0) {
-//     let mx=arr_neop_prop[snr].hwMatrix[0];
-//     let my=arr_neop_prop[snr].hwMatrix[1];
-//     for (let y:number = 0; y < arr_neop_prop[snr].hwMatrix[1]; y++) {
+//     let mx=arr_neop_settings[snr].hwMatrix[0];
+//     let my=arr_neop_settings[snr].hwMatrix[1];
+//     for (let y:number = 0; y < arr_neop_settings[snr].hwMatrix[1]; y++) {
 //         neop_schreibe_zch(snr,"-")
 //         shift=(mx*2 -1 + shift--) % mx;
 //         pause(500)
@@ -142,8 +142,8 @@ input.onButtonPressed(Button.AB, function () {
 function neop_schreibe_zch (snr:number,zch_str:string="A",color:number) {
     let zeichen_matrix:Array<number>=[]
 
-    let mx=arr_neop_prop[snr].hwMatrix[0];
-    let my=arr_neop_prop[snr].hwMatrix[1];
+    let mx=arr_neop_settings[snr].hwMatrix[0];
+    let my=arr_neop_settings[snr].hwMatrix[1];
     
     let is_type=0 
     
@@ -185,7 +185,7 @@ function neop_schreibe_zch (snr:number,zch_str:string="A",color:number) {
                 //b=z, z=mx-1-bit
                 if (zahl & Math.pow(2,(bit+shift) % mx)) {
                     let px = z * mx + ((z % 2) ? (mx-1-b):b)
-                    // arr_neop_strips[snr].setPixelColor(px, arr_neop_prop[snr].farbe)
+                    // arr_neop_strips[snr].setPixelColor(px, arr_neop_settings[snr].farbe)
                     arr_neop_strips[snr].setPixelColor(px, color);
                 }
             }
@@ -201,9 +201,9 @@ function neop_schreibe_zch (snr:number,zch_str:string="A",color:number) {
 // Create and INIT #####################################
 function init_neop_create(snr:number) {
     let anz=arr_neop_strips.length;
-    let pin=arr_neop_prop[snr].pin;
+    let pin=arr_neop_settings[snr].pin;
     let farbe=neopixel.colors(NeoPixelColors.Red);
-    let pixelAnzahl=arr_neop_prop[snr].hwMatrix[0] * arr_neop_prop[snr].hwMatrix [1];
+    let pixelAnzahl=arr_neop_settings[snr].hwMatrix[0] * arr_neop_settings[snr].hwMatrix [1];
 
     let strip=neopixel.create(pin, pixelAnzahl, NeoPixelMode.RGB)
     arr_neop_strips.push(strip)
@@ -222,12 +222,12 @@ function init_strip_serie(system_anzahl:number) {
     }
 }
 function strip_data_save() {
-    arr_neop_prop.push({pin:DigitalPin.P1,hwMatrix:[8,4]}) 
-    arr_neop_prop.push({pin:DigitalPin.P2,hwMatrix:[8,2]}) 
-    arr_neop_prop.push({pin:DigitalPin.P8,hwMatrix:[8,2]}) 
+    arr_neop_settings.push({pin:DigitalPin.P1,hwMatrix:[8,4]}) 
+    arr_neop_settings.push({pin:DigitalPin.P2,hwMatrix:[8,2]}) 
+    arr_neop_settings.push({pin:DigitalPin.P8,hwMatrix:[8,2]}) 
 }
 
-function init_all_strip(helligkeit:number,zch_pause:number) {
+function init_all_strips(helligkeit:number,zch_pause:number) {
     strip_helligkeit=helligkeit;
     strip_pause=zch_pause;
 }
@@ -236,10 +236,9 @@ function init_all_strip(helligkeit:number,zch_pause:number) {
 // testbetrieb
 function test() {
     console.log(arr_zeichen_tabelle.length);
-    
     neop_schreibe_zch(0,"31,17,17,31,31",NeoPixelColors.Red)
-    neop_schreibe_zch(1,"AB",NeoPixelColors.Green)
-    neop_schreibe_zch(2,"12340",NeoPixelColors.Blue)
+    if (neo_strip_anzahl>1) neop_schreibe_zch(1,"AB",NeoPixelColors.Green)
+    if (neo_strip_anzahl>2) neop_schreibe_zch(2,"12340",NeoPixelColors.Blue)
 }
 
 
@@ -259,19 +258,19 @@ let bst_muster=[31,31,31,31,31,31,31,31];
 let shift:number=0
 let strip_helligkeit:number=100;
 let strip_pause:number=2000;
-let anz_strips_vorh:number=2;
+
 
 let arr_neop_strips:Array<neopixel.Strip>=[]
-let arr_neop_prop:Array<neop>=[]
+let arr_neop_settings:Array<neop>=[]
 
 let arr_zeichen_tabelle:Array<zch_tab>;
-let neo_strip_anz:number=3;
+let neo_strip_anzahl:number=2;
 // ende variable
 
 //beginn initialisierung ############################
 init_alphabet();
 strip_data_save();
-init_strip_serie(neo_strip_anz);
+init_strip_serie(neo_strip_anzahl);
 basic.showIcon(IconNames.Yes)
 // ende Initialisierung
 

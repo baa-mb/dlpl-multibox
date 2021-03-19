@@ -28,20 +28,19 @@ namespace DLPLneopixel {
         neop_schreibe_zch(snr,txt,color)
     }
 
+
+    //% helligkeit.defl=150 zch_pausen.defl=150 
+    //% block="setze Helligkeit der Pixel = $helligkeit und die Pausen bei Wortausgaben = $zch_pause"
+    //% color.shadow="colorNumberPicker"
+    export function all_strip_settings(helligkeit:number,zch_pause:number): void {
+        init_all_strips(helligkeit,zch_pause);
+    }
+
+
     //% block="setze Farbe $color"
     //% color.shadow="colorNumberPicker"
     export function setColor(color: number) {
         console.log(color)
     }
 
-
-
-
-    //% group="Hauptbefehle"
-
-    //% block blockGap=0
-    export function schreibeZeichen(z:string): void {
-        // Add code here neu
-        neop_schreibe_zch(0,z,NeoPixelColors.Green);
-    }
 }

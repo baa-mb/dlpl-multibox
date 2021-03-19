@@ -229,7 +229,6 @@ function test() {
     neop_schreibe_zch(0,"31,17,17,31,31")
     neop_schreibe_zch(1,"AB")
     neop_schreibe_zch(2,"12340")
-    //neop_schreibe_wort(0,"bach")
 }
 
 

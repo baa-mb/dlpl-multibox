@@ -29,7 +29,7 @@ namespace DLPLneopixel {
     }
 
 
-    //% helligkeit.defl=150 zch_pausen.defl=150 
+    //% helligkeit.defl=150 zch_pause.defl=2000
     //% block="setze Helligkeit der Pixel = $helligkeit und die Pausen bei Wortausgaben = $zch_pause"
     //% color.shadow="colorNumberPicker"
     export function all_strip_settings(helligkeit:number,zch_pause:number): void {

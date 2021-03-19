@@ -274,5 +274,5 @@ init_strip_serie(neo_strip_anzahl);
 basic.showIcon(IconNames.Yes)
 // ende Initialisierung
 
-test();
+//test();
 

@@ -163,11 +163,11 @@ function neop_schreibe_zch (snr:number,zch_str:string="A") {
             zeichen_matrix=arr_zeichen_tabelle.find(elem => elem.bst === '?').def
         }
 
-        //console.log(zeichen_matrix);
-        if (zch=="^") {
-            // zeichen_matrix=arr_neop_prop[snr].muster;
-            zeichen_matrix=bst_muster;
-        }
+        // //console.log(zeichen_matrix);
+        // if (zch=="^") {
+        //     // zeichen_matrix=arr_neop_prop[snr].muster;
+        //     zeichen_matrix=bst_muster;
+        // }
         
         arr_neop_strips[snr].clear()
         arr_neop_strips[snr].show()

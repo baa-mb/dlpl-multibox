@@ -181,7 +181,7 @@ function neop_schreibe_zch (snr:number,zch:string="A") {
     //basic.showString(zch)
 
     zeichen_matrix.forEach (function(zahl,zeile) {
-        console.log("zahl= "+zahl+" Zeile="+zeile+" mx="+mx)
+        //console.log("zahl= "+zahl+" Zeile="+zeile+" mx="+mx)
         for (let bit=0;bit<mx;bit++) {
             let z=zeile, b=bit //7- minus
             //b=z, z=bit
@@ -201,7 +201,7 @@ function neop_schreibe_wort(snr:number,wort:string) {
        pause (arr_neop_prop[snr].wortPause)
    }
 }
-function init_serie(system_anzahl:number) {
+function init_strip_serie(system_anzahl:number) {
     for (let i=0;i<system_anzahl;i++) {
         init_neop_create(i);
         init_neop_init(i);
@@ -237,14 +237,14 @@ arr_neop_prop.push({pin:DigitalPin.P1,hwMatrix:[8,2],helligkeit:50,farbe:0x0000f
 arr_neop_prop.push({pin:DigitalPin.P2,hwMatrix:[8,2],helligkeit:50,farbe:0x00ff00,wortPause:2000}) 
 arr_neop_prop.push({pin:DigitalPin.P8,hwMatrix:[8,2],helligkeit:50,farbe:0xff0000,wortPause:2000}) 
 
-
+init_strip_serie(3);
 
 basic.showIcon(IconNames.Yes)
 
 
-neop_schreibe_zch(0,"C")
-neop_schreibe_zch(1,"C")
-neop_schreibe_zch(2,"C")
+neop_schreibe_zch(0,"a")
+neop_schreibe_zch(1,"c")
+neop_schreibe_zch(2,"c")
 
 let akt_snr=0;
 

@@ -1,104 +1,5 @@
 
 
-let bst_nr:number=0;
-input.onButtonPressed(Button.A, function () {
-    let mx=neop_prop.hardwarepixel[0];
-    let my=neop_prop.hardwarepixel[1];
-    //shift=(mx*2 -1 + shift--) % mx;
-    //neop_schreibe_zch();
-    //bst_nr++;
-    let anz=arr_zeichen_tabelle.length
-    //neop_schreibe_zch(alphabet[(++bst_nr % anz)])
-    neop_schreibe_zch(akt_snr,arr_zeichen_tabelle[(++bst_nr % anz)].bst)
-})
-input.onButtonPressed(Button.B, function () {
-    neop_reihe(7);
-    //    neop_spalte(7)
-    //neop_schreibe_zch();
-})
-
-input.onButtonPressed(Button.AB, function () {
-    arr_neop_strip[0].clear()
-    arr_neop_strip[0].show()
-})
-
-
-function neop_reihe(snr:number,y:number=0) {
-    for (let x = 0; x < neop_prop.hardwarepixel[0]; x++) {
-        neop_schreibe_zch(snr,"#")
-        pause(500)
-    }
-}
-function neop_spalte(snr:number,x:number=0) {
-    let mx=neop_prop.hardwarepixel[0];
-    let my=neop_prop.hardwarepixel[1];
-    for (let y:number = 0; y < neop_prop.hardwarepixel[1]; y++) {
-        neop_schreibe_zch(snr,"-")
-        shift=(mx*2 -1 + shift--) % mx;
-        pause(500)
-    }
-}
-
-function init_neop_create(pin:number=1, matrix:Array<number>, farbe:number) {
-    let hardwarepixelanzahl=matrix[0]*matrix[1];
-    arr_neop_strip.push(neopixel.create(pin, hardwarepixelanzahl, farbe))
-    return arr_neop_strip.length
-}
-
-
-function init_neop_init(snr:number) {
-    arr_neop_strip[snr].setBrightness(neop_prop.helligkeit)
-    arr_neop_strip[snr].clear()
-    arr_neop_strip[snr].show()
-}
-
-function neop_schreibe_zch (snr:number,zch:string="A") {
-    let mx=neop_prop.hardwarepixel[0];
-    let my=neop_prop.hardwarepixel[1];
-    let zeichen_matrix:Array<number>=[]
-    let found=arr_zeichen_tabelle.find(elem => elem.bst === zch);
-    if (found) {
-        zeichen_matrix=found.def
-    } else {
-        zeichen_matrix=arr_zeichen_tabelle.find(elem => elem.bst === 'x').def
-    }
-
-    //console.log(zeichen_matrix);
-    if (zch=="#") {
-        zeichen_matrix=neop_prop.muster;
-    }
-    
-    arr_neop_strip[snr].clear()
-    arr_neop_strip[snr].show()
-    //basic.showString(zch)
-    zeichen_matrix.forEach (function(zahl,zeile) {
-        for (let bit=0;bit<mx;bit++) {
-            let z=zeile, b=bit //7- minus
-            //b=z, z=bit
-            //b=z, z=mx-1-bit
-            if (zahl & Math.pow(2,(bit+shift) % mx)) {
-                let px = z * my + ((z % 2) ? (mx-1-b):b)
-                arr_neop_strip[snr].setPixelColor(px, neop_prop.farbe)
-            }
-        }
-    })
-    arr_neop_strip[snr].show()
-}
-
-function neop_schreibe_wort(snr:number,wort:string) {
-   //let wort:string="BaCHINGER#"
-//    if (typeof wort == "number") {
-//        wort=wort.toString();
-//    }
-   
-   for (let b:number=0;b<wort.length;b++) {
-       neop_schreibe_zch(snr,wort[b]);
-       pause (neop_prop.wortPause)
-   }
-}
-
-
-
 function init_zeichen() {
     arr_zeichen_tabelle = [
         {bst:"#",def: [31]},
@@ -145,6 +46,110 @@ function init_zeichen() {
     ]
 }
 
+
+let bst_nr:number=0;
+input.onButtonPressed(Button.A, function () {
+    let mx=arr_neop_prop[akt_snr].hardwarepixel[0];
+    let my=arr_neop_prop[akt_snr].hardwarepixel[1];
+    //shift=(mx*2 -1 + shift--) % mx;
+    //neop_schreibe_zch();
+    //bst_nr++;
+    let anz=arr_zeichen_tabelle.length
+    //neop_schreibe_zch(alphabet[(++bst_nr % anz)])
+    neop_schreibe_zch(akt_snr,arr_zeichen_tabelle[(++bst_nr % anz)].bst)
+})
+input.onButtonPressed(Button.B, function () {
+    neop_reihe(akt_snr);
+    //    neop_spalte(7)
+    //neop_schreibe_zch();
+})
+
+input.onButtonPressed(Button.AB, function () {
+    arr_neop_strips[0].clear()
+    arr_neop_strips[0].show()
+})
+
+
+function neop_reihe(snr:number,y:number=0) {
+    for (let x = 0; x < arr_neop_prop[snr].hardwarepixel[0]; x++) {
+        neop_schreibe_zch(snr,"#")
+        pause(500)
+    }
+}
+function neop_spalte(snr:number,x:number=0) {
+    let mx=arr_neop_prop[snr].hardwarepixel[0];
+    let my=arr_neop_prop[snr].hardwarepixel[1];
+    for (let y:number = 0; y < arr_neop_prop[snr].hardwarepixel[1]; y++) {
+        neop_schreibe_zch(snr,"-")
+        shift=(mx*2 -1 + shift--) % mx;
+        pause(500)
+    }
+}
+
+function init_neop_create(pin:number=1, matrix:Array<number>, farbe:number) {
+    let hardwarepixelanzahl=matrix[0]*matrix[1];
+    arr_neop_strips.push(neopixel.create(pin, hardwarepixelanzahl, farbe))
+    return arr_neop_strips.length
+}
+
+
+function init_neop_init(snr:number) {
+    arr_neop_strips[snr].setBrightness(arr_neop_prop[snr].helligkeit)
+    arr_neop_strips[snr].clear()
+    arr_neop_strips[snr].show()
+}
+
+function neop_schreibe_zch (snr:number,zch:string="A") {
+    let mx=arr_neop_prop[snr].hardwarepixel[0];
+    let my=arr_neop_prop[snr].hardwarepixel[1];
+    let zeichen_matrix:Array<number>=[]
+    let found=arr_zeichen_tabelle.find(elem => elem.bst === zch);
+    if (found) {
+        zeichen_matrix=found.def
+    } else {
+        zeichen_matrix=arr_zeichen_tabelle.find(elem => elem.bst === 'x').def
+    }
+
+    //console.log(zeichen_matrix);
+    if (zch=="#") {
+        // zeichen_matrix=arr_neop_prop[snr].muster;
+        zeichen_matrix=bst_muster;
+    }
+    
+    arr_neop_strips[snr].clear()
+    arr_neop_strips[snr].show()
+    //basic.showString(zch)
+    zeichen_matrix.forEach (function(zahl,zeile) {
+        for (let bit=0;bit<mx;bit++) {
+            let z=zeile, b=bit //7- minus
+            //b=z, z=bit
+            //b=z, z=mx-1-bit
+            if (zahl & Math.pow(2,(bit+shift) % mx)) {
+                let px = z * my + ((z % 2) ? (mx-1-b):b)
+                arr_neop_strips[snr].setPixelColor(px, arr_neop_prop[snr].farbe)
+            }
+        }
+    })
+    arr_neop_strips[snr].show()
+}
+
+function neop_schreibe_wort(snr:number,wort:string) {
+   //let wort:string="BaCHINGER#"
+//    if (typeof wort == "number") {
+//        wort=wort.toString();
+//    }
+   
+   for (let b:number=0;b<wort.length;b++) {
+       neop_schreibe_zch(snr,wort[b]);
+       pause (arr_neop_prop[snr].wortPause)
+   }
+}
+function mke_strip_prop (prop:neop) {
+
+
+
+}
+
 function tests () {
     //let arr_zeichen_matrix
     // console.log(arr_zeichen_exists)
@@ -163,16 +168,25 @@ function tests () {
 
 }
 
+// interface neop  {
+//     pin: DigitalPin.P1,
+//     hardwarepixel: [8,8],
+//     helligkeit: 50,
+//     farbe: 0x0000FF,
+//     softwarepixel: [8,8],
+//     muster: [31,31,17,17,17,31,31],
+//     wortPause: 2000   
+// }
+
 
 // Variable
-let neop_prop = {
-    pin: DigitalPin.P1,
-    hardwarepixel: [8,8],
-    helligkeit: 50,
-    farbe: 0x0000FF,
-    softwarepixel: [8,8],
-    muster: [31,31,17,17,17,31,31],
-    wortPause: 2000   
+interface neop  {
+    pin: number;
+    hardwarepixel: Array<number>;
+    helligkeit: number;
+    farbe: number;
+    softwarepixel: Array<number>;
+    wortPause: number;   
 }
 
 interface zch_tab {
@@ -186,14 +200,31 @@ init_zeichen();
 
 let shift=0
 
-let arr_neop_strip:Array<neopixel.Strip>=[]
-
+let arr_neop_strips:Array<neopixel.Strip>=[]
+let arr_neop_prop:Array<neop>=[]
 let strip_anz:number=0;
+let bst_muster=[31,31,17,17,17,31,31];
+
+
+//     pin: DigitalPin.P1,
+//     hardwarepixel: [8,8],
+//     helligkeit: 50,
+//     farbe: 0x0000FF,
+//     softwarepixel: [8,8],
+//     muster: [31,31,17,17,17,31,31],
+//     wortPause: 2000   
+
+arr_neop_prop.push() 
+
 strip_anz=init_neop_create(DigitalPin.P1,[8,5],NeoPixelColors.Red)
 init_neop_init(0)
 
 strip_anz=init_neop_create(DigitalPin.P2,[8,2],NeoPixelColors.Green)
 init_neop_init(1)
+
+
+
+
 
 basic.showIcon(IconNames.Yes)
 

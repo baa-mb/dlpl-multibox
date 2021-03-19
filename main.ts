@@ -2,7 +2,7 @@
 
 function init_alphabet() {
     arr_zeichen_tabelle = [
-        {bst:"°",def: [14,17,1,2,4,0,4]},
+        {bst:"^",def: [14,17,1,2,4,0,4]},
         {bst:"A",def: [14,17,17,31,17,17,17]},
         {bst:"B",def: [30,17,17,30,17,17,30]},
         {bst:"C",def: [14,17,16,16,16,17,14]},
@@ -36,6 +36,7 @@ function init_alphabet() {
         {bst:"ö",def: [10,0,0,14,17,17,14]},
         {bst:"ü",def: [10,0,0,17,17,17,14]},
         {bst:"Z",def: [31,1,2,4,8,16,31]},
+
 	{bst:"a",def: [0,0,14,1,15,17,15]},
 	{bst:"b",def: [16,16,22,25,17,17,14]},
 	{bst:"c",def: [0,0,14,16,16,17,14]},
@@ -62,6 +63,7 @@ function init_alphabet() {
 	{bst:"x",def: [0,0,25,6,4,12,19]},
 	{bst:"y",def: [0,0,17,9,6,4,24]},
 	{bst:"z",def: [0,0,31,2,4,8,31]},
+/*
         {bst:"0",def: [14,17,19,21,25,17,14]},
         {bst:"1",def: [4,12,4,4,4,4,14]},
         {bst:"2",def: [14,17,1,2,4,8,31]},
@@ -79,47 +81,35 @@ function init_alphabet() {
         {bst:"*",def: [0,0,4,21,14,21,4]},
         {bst:"+",def: [0,4,21,14,21,4,0]},
         {bst:"-",def: [0,0,0,31,0,0]},
+        {bst:"=",def: [0,0,31,0,31,0,0]},
+        {bst:"≠",def: [1,2,31,4,31,8,16]},
+        {bst:":",def: [0,12,12,0,12,12,0]},
+        {bst:"%",def: [24,25,2,4,8,19,3]},
+*/
+/* Micro:bit 2.0
         {bst:"#",def: [10,10,31,10,31,10,10]},
         {bst:"$",def: [4,15,20,14,5,30,4]},
-        {bst:"%",def: [24,25,2,4,8,19,3]},
         {bst:"&",def: [12,18,20,8,21,18,13]},
         {bst:"(",def: [4,8,16,16,16,8,4]},
         {bst:")",def: [4,2,1,1,1,2,4]},
         {bst:"/",def: [1,2,4,8,16,0]},
+
         {bst:"@",def: [14,17,1,9,21,21,14]},
-        {bst:":",def: [0,12,12,0,12,12,0]},
         {bst:";",def: [0,12,12,0,12,4,8]},
         {bst:"<",def: [2,4,8,16,8,4,2]},
         {bst:">",def: [8,4,2,1,2,4,8]},
-        {bst:"=",def: [0,0,31,0,31,0,0]},
+       
         {bst:"[",def: [14,8,8,8,8,8,14]},
         {bst:"]",def: [14,2,2,2,2,2,14]},
         {bst:"|",def: [4,4,4,4,4,4,4]},
         {bst:"{",def: [6,8,8,16,8,8,6]},
         {bst:"}",def: [12,2,2,1,2,2,12]},
-        {bst:"≠",def: [1,2,31,4,31,8,16]},
         {bst:"~",def: [0,0,8,21,2,0,0]},
         {bst:"€",def: [6,9,28,8,28,9,6]}
+*/        
     ]
 }
 
-
-let bst_nr:number=0;
-input.onButtonPressed(Button.A, function () {
-    let mx=arr_neop_prop[akt_snr].hwMatrix[0];
-    let my=arr_neop_prop[akt_snr].hwMatrix[1];
-    //shift=(mx*2 -1 + shift--) % mx;
-    //neop_schreibe_zch();
-    //bst_nr++;
-    let anz=arr_zeichen_tabelle.length
-    //neop_schreibe_zch(alphabet[(++bst_nr % anz)])
-    neop_schreibe_zch(akt_snr,arr_zeichen_tabelle[(++bst_nr % anz)].bst)
-})
-input.onButtonPressed(Button.B, function () {
-    neop_reihe(akt_snr);
-    //    neop_spalte(7)
-    //neop_schreibe_zch();
-})
 
 input.onButtonPressed(Button.AB, function () {
     arr_neop_strips[0].clear()
@@ -143,21 +133,6 @@ function neop_spalte(snr:number,x:number=0) {
     }
 }
 
-function init_neop_create(snr:number) {
-    let pin=arr_neop_prop[snr].pin;
-    let farbe=arr_neop_prop[snr].farbe;
-    let pixelAnzahl=arr_neop_prop[snr].hwMatrix[0] * arr_neop_prop[snr].hwMatrix [1];
-
-    arr_neop_strips.push(neopixel.create(pin, pixelAnzahl, farbe))
-    // return arr_neop_strips.length
-}
-
-
-function init_one_strip(snr:number) {
-    arr_neop_strips[snr].setBrightness(arr_neop_prop[snr].helligkeit)
-    arr_neop_strips[snr].clear()
-    arr_neop_strips[snr].show()
-}
 
 function neop_schreibe_zch (snr:number,zch:string="A") {
     let mx=arr_neop_prop[snr].hwMatrix[0];
@@ -171,7 +146,7 @@ function neop_schreibe_zch (snr:number,zch:string="A") {
     }
 
     //console.log(zeichen_matrix);
-    if (zch=="#") {
+    if (zch=="^") {
         // zeichen_matrix=arr_neop_prop[snr].muster;
         zeichen_matrix=bst_muster;
     }
@@ -201,6 +176,25 @@ function neop_schreibe_wort(snr:number,wort:string) {
        pause (arr_neop_prop[snr].wortPause)
    }
 }
+
+
+
+// Create and INIT #####################################
+function init_neop_create(snr:number) {
+    let pin=arr_neop_prop[snr].pin;
+    let farbe=arr_neop_prop[snr].farbe;
+    let pixelAnzahl=arr_neop_prop[snr].hwMatrix[0] * arr_neop_prop[snr].hwMatrix [1];
+    arr_neop_strips.push(neopixel.create(pin, pixelAnzahl, farbe))
+}
+
+
+function init_one_strip(snr:number) {
+    arr_neop_strips[snr].setBrightness(arr_neop_prop[snr].helligkeit)
+    arr_neop_strips[snr].clear()
+    arr_neop_strips[snr].show()
+}
+
+
 function init_strip_serie(system_anzahl:number) {
     for (let i=0;i<system_anzahl;i++) {
         init_neop_create(i);
@@ -208,11 +202,20 @@ function init_strip_serie(system_anzahl:number) {
     }
 }
 function strip_data_save() {
-    arr_neop_prop.push({pin:DigitalPin.P1,hwMatrix:[8,2],helligkeit:50,farbe:0x0000ff,wortPause:2000}) 
+    arr_neop_prop.push({pin:DigitalPin.P1,hwMatrix:[8,4],helligkeit:50,farbe:0x0000ff,wortPause:2000}) 
     arr_neop_prop.push({pin:DigitalPin.P2,hwMatrix:[8,2],helligkeit:50,farbe:0x00ff00,wortPause:2000}) 
     arr_neop_prop.push({pin:DigitalPin.P8,hwMatrix:[8,2],helligkeit:50,farbe:0xff0000,wortPause:2000}) 
 }
 
+
+// testbetrieb
+function test() {
+    console.log(arr_zeichen_tabelle.length);
+    neop_schreibe_zch(0,"ABC")
+    neop_schreibe_zch(1,"ABC")
+    neop_schreibe_zch(2,"A")
+    //neop_schreibe_wort(0,"bach")
+}
 
 
 // variable ########################################
@@ -230,29 +233,22 @@ interface zch_tab {
 }
 
 let arr_farben=[0xFF0000,0xFFA500,0xFFFF00,0x00FF00,0x0000FF,0x4b0082,0x8a2be2,0xFF00FF,0xFFFFFF,0x000000]
+let bst_muster=[31,31,31,31,31,31,31,31];
 let shift=0
 
 let arr_neop_strips:Array<neopixel.Strip>=[]
 let arr_neop_prop:Array<neop>=[]
-let strip_anz:number=0;
-let bst_muster=[31,31,17,17,17,31,31];
-let arr_zeichen_tabelle:Array<zch_tab>;
 
+let arr_zeichen_tabelle:Array<zch_tab>;
+let neo_strip_anz:number=3;
 // ende variable
 
 //beginn initialisierung ############################
 init_alphabet();
 strip_data_save();
-console.log(arr_zeichen_tabelle.length);
-
-init_strip_serie(3);
+init_strip_serie(neo_strip_anz);
+basic.showIcon(IconNames.Happy)
 // ende Initialisierung
 
-basic.showIcon(IconNames.Yes)
-
-neop_schreibe_zch(0,"a")
-neop_schreibe_zch(1,"c")
-neop_schreibe_zch(2,"c")
-
-let akt_snr=0;
+test();
 

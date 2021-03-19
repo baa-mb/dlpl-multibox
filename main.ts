@@ -176,7 +176,7 @@ function neop_schreibe_zch (snr:number,zch_str:string="A",color:number) {
        }        
         arr_neop_strips[snr].clear()
         arr_neop_strips[snr].show()
- arr_neop_strips[snr].showColor(color)
+//  arr_neop_strips[snr].showColor(color)
         zeichen_matrix.forEach (function(zahl,zeile) {
             //console.log("zahl= "+zahl+" Zeile="+zeile+" mx="+mx)
             for (let bit=0;bit<mx;bit++) {
@@ -185,7 +185,8 @@ function neop_schreibe_zch (snr:number,zch_str:string="A",color:number) {
                 //b=z, z=mx-1-bit
                 if (zahl & Math.pow(2,(bit+shift) % mx)) {
                     let px = z * mx + ((z % 2) ? (mx-1-b):b)
-                    arr_neop_strips[snr].setPixelColor(px, arr_neop_prop[snr].farbe)
+                    // arr_neop_strips[snr].setPixelColor(px, arr_neop_prop[snr].farbe)
+                    arr_neop_strips[snr].setPixelColor(px, color);
                 }
             }
         })

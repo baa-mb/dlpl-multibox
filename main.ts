@@ -2,47 +2,104 @@
 
 function init_zeichen() {
     arr_zeichen_tabelle = [
-        {bst:"#",def: [31]},
-        {bst:"x",def: [31]},
-        {bst:"A",def: [31,17,17,31,17,17,17]},
-        {bst:"B",def: [30,17,17,31,17,17,30]},
-        {bst:"C",def: [31,16,16,16,16,16,31]},
-        {bst:"D",def: [30,17,17,17,17,17,30]},
+        {bst:"°",def: [14,17,1,2,4,0,4]},
+        {bst:"A",def: [14,17,17,31,17,17,17]},
+        {bst:"B",def: [30,17,17,30,17,17,30]},
+        {bst:"C",def: [14,17,16,16,16,17,14]},
+        {bst:"D",def: [28,18,17,17,17,18,28]},
         {bst:"E",def: [31,16,16,30,16,16,31]},
         {bst:"F",def: [31,16,16,30,16,16,16]},
-        {bst:"G",def: [31,16,16,19,17,17,31]},
+        {bst:"G",def: [14,17,16,23,17,17,14]},
         {bst:"H",def: [17,17,17,31,17,17,17]},
         {bst:"I",def: [14,4,4,4,4,4,14]},
-
-        {bst:"J",def: [17,17,17,31,17,17,17]},
-        {bst:"K",def: [17,17,17,31,17,17,17]},
-        {bst:"L",def: [16,16,16,16,16,31]},
-        {bst:"M",def: [17,17,17,31,17,17,17]},
-        {bst:"N",def: [17,17,17,31,17,17,17]},
-        {bst:"O",def: [17,17,17,31,17,17,17]},
-        {bst:"P",def: [17,17,17,31,17,17,17]},
-        {bst:"Q",def: [17,17,17,31,17,17,17]},
-        {bst:"R",def: [17,17,17,31,17,17,17]},
-        {bst:"T",def: [17,17,17,31,17,17,17]},
-        {bst:"U",def: [17,17,17,31,17,17,17]},
-        {bst:"V",def: [17,17,17,31,17,17,17]},
-        {bst:"W",def: [17,17,17,31,17,17,17]},
-        {bst:"X",def: [17,17,17,31,17,17,17]},
-        {bst:"Y",def: [17,17,17,31,17,17,17]},
-        {bst:"Z",def: [17,17,17,31,17,17,17]},
-        {bst:"0",def: [31,17,17,31,17,17,31]},
-        {bst:"1",def: [4,12,20,4,4,4,4]},
-        {bst:"2",def: [31,1,1,31,16,16,31]},
-        {bst:"3",def: [31,1,1,6,1,1,31]},
-        {bst:"4",def: [18,18,18,31,2,2,2]},
-        {bst:"5",def: [31,16,16,15,1,17,31]},
-        {bst:"6",def: [17,17,17,31,17,17,17]},
-        {bst:"7",def: [17,17,17,31,17,17,17]},
-        {bst:"8",def: [17,17,17,31,17,17,17]},
-        {bst:"9",def: [17,17,17,31,17,17,17]},
-        {bst:"!",def: [17,17,17,31,17,17,17]},
-        {bst:"?",def: [17,17,17,31,17,17,17]},
-        {bst:"€",def: [17,17,17,31,17,17,17]}
+        {bst:"J",def: [15,2,2,2,2,18,12]},
+        {bst:"K",def: [17,18,20,24,20,18,17]},
+        {bst:"L",def: [16,16,16,16,16,16,31]},
+        {bst:"M",def: [17,27,21,21,17,17,17]},
+        {bst:"N",def: [17,17,25,21,19,17,17]},
+        {bst:"O",def: [14,17,17,17,17,17,14]},
+        {bst:"P",def: [30,17,17,30,16,16,16]},
+        {bst:"Q",def: [14,17,17,17,21,18,13]},
+        {bst:"R",def: [30,17,17,30,20,18,17]},
+    	{bst:"S",def: [14,17,16,14,1,17,14]},
+        {bst:"T",def: [31,4,4,4,4,4,4]},
+        {bst:"U",def: [17,17,17,17,17,17,14]},
+        {bst:"V",def: [17,17,17,17,17,10,4]},
+        {bst:"W",def: [17,17,17,21,21,27,17]},
+        {bst:"X",def: [17,17,10,4,10,17,17]},
+        {bst:"Y",def: [17,17,10,4,4,4,4]},
+        {bst:"Z",def: [31,1,2,4,8,16,31]},
+        {bst:"Ä",def: [10,0,4,10,17,31,17]},
+        {bst:"Ö",def: [17,14,17,17,17,17,14]},
+        {bst:"Ü",def: [17,0,17,17,17,14]},
+        {bst:"ä",def: [10,0,14,1,15,17,15]},
+        {bst:"ö",def: [10,0,0,14,17,17,14]},
+        {bst:"ü",def: [10,0,0,17,17,17,14]},
+        {bst:"Z",def: [31,1,2,4,8,16,31]},
+	{bst:"a",def: [0,0,14,1,15,17,15]},
+	{bst:"b",def: [16,16,22,25,17,17,14]},
+	{bst:"c",def: [0,0,14,16,16,17,14]},
+	{bst:"d",def: [1,1,13,19,17,17,15]},
+	{bst:"e",def: [0,0,14,17,31,16,14]},
+	{bst:"f",def: [2,5,4,14,4,4,4]},
+	{bst:"g",def: [0,0,15,17,15,1,14]},
+	{bst:"h",def: [16,16,22,25,17,17,17]},
+	{bst:"i",def: [4,0,12,4,4,4,14]},
+	{bst:"j",def: [2,0,2,2,2,18,12]},
+	{bst:"k",def: [8,8,9,10,12,10,9]},
+	{bst:"l",def: [12,4,4,4,4,4,14]},
+	{bst:"m",def: [0,0,26,21,21,21,21]},
+	{bst:"n",def: [0,0,22,25,17,17,17]},
+	{bst:"o",def: [0,0,14,17,17,17,14]},
+	{bst:"p",def: [0,0,30,17,30,16,16]},
+	{bst:"q",def: [0,0,15,17,15,1,1]},
+	{bst:"r",def: [0,0,11,12,8,8,8]},
+	{bst:"s",def: [0,0,15,16,14,1,30]},
+	{bst:"t",def: [4,14,4,4,4,5,2]},
+	{bst:"u",def: [0,0,17,17,17,19,13]},
+	{bst:"v",def: [0,0,17,17,17,10,4]},
+	{bst:"w",def: [0,0,17,17,17,21,10]},
+	{bst:"x",def: [0,0,25,6,4,12,19]},
+	{bst:"y",def: [0,0,17,9,6,4,24]},
+	{bst:"z",def: [0,0,31,2,4,8,31]},
+        {bst:"0",def: [14,17,19,21,25,17,14]},
+        {bst:"1",def: [4,12,4,4,4,4,14]},
+        {bst:"2",def: [14,17,1,2,4,8,31]},
+        {bst:"3",def: [31,2,4,2,1,17,14]},
+        {bst:"4",def: [2,6,10,18,31,2,2]},
+        {bst:"5",def: [31,16,30,1,1,17,14]},
+        {bst:"6",def: [6,8,16,30,17,17,14]},
+        {bst:"7",def: [31,1,2,4,4,4,4]},
+        {bst:"8",def: [14,17,17,14,17,17,14]},
+        {bst:"9",def: [14,17,17,15,1,2,12]},
+        {bst:"!",def: [4,4,4,4,4,0,4]},
+        {bst:"?",def: [14,17,1,2,4,0,4]},
+        {bst:".",def: [0,0,0,0,0,12,12]},
+        {bst:",",def: [14,17,1,2,4,0,4]},
+        {bst:"*",def: [0,0,4,21,14,21,4]},
+        {bst:"+",def: [0,4,21,14,21,4,0]},
+        {bst:"-",def: [0,0,0,31,0,0]},
+        {bst:"#",def: [10,10,31,10,31,10,10]},
+        {bst:"$",def: [4,15,20,14,5,30,4]},
+        {bst:"%",def: [24,25,2,4,8,19,3]},
+        {bst:"&",def: [12,18,20,8,21,18,13]},
+        {bst:"(",def: [4,8,16,16,16,8,4]},
+        {bst:")",def: [4,2,1,1,1,2,4]},
+        {bst:"/",def: [1,2,4,8,16,0]},
+        {bst:"@",def: [14,17,1,9,21,21,14]},
+        {bst:":",def: [0,12,12,0,12,12,0]},
+        {bst:";",def: [0,12,12,0,12,4,8]},
+        {bst:"<",def: [2,4,8,16,8,4,2]},
+        {bst:">",def: [8,4,2,1,2,4,8]},
+        {bst:"=",def: [0,0,31,0,31,0,0]},
+        {bst:"[",def: [14,8,8,8,8,8,14]},
+        {bst:"]",def: [14,2,2,2,2,2,14]},
+        {bst:"|",def: [4,4,4,4,4,4,4]},
+        {bst:"{",def: [6,8,8,16,8,8,6]},
+        {bst:"}",def: [12,2,2,1,2,2,12]},
+        {bst:"≠",def: [1,2,31,4,31,8,16]},
+        {bst:"~",def: [0,0,8,21,2,0,0]},
+        {bst:"€",def: [6,9,28,8,28,9,6]}
     ]
 }
 
@@ -108,7 +165,7 @@ function neop_schreibe_zch (snr:number,zch:string="A") {
     let zeichen_matrix:Array<number>=[]
     let found=arr_zeichen_tabelle.find(elem => elem.bst === zch);
     if (found) {
-        zeichen_matrix=found.def
+        zeichen_matrix=found.def.slice(0,my)
     } else {
         zeichen_matrix=arr_zeichen_tabelle.find(elem => elem.bst === 'x').def
     }
@@ -122,13 +179,15 @@ function neop_schreibe_zch (snr:number,zch:string="A") {
     arr_neop_strips[snr].clear()
     arr_neop_strips[snr].show()
     //basic.showString(zch)
+
     zeichen_matrix.forEach (function(zahl,zeile) {
+        console.log("zahl= "+zahl+" Zeile="+zeile+" mx="+mx)
         for (let bit=0;bit<mx;bit++) {
             let z=zeile, b=bit //7- minus
             //b=z, z=bit
             //b=z, z=mx-1-bit
             if (zahl & Math.pow(2,(bit+shift) % mx)) {
-                let px = z * my + ((z % 2) ? (mx-1-b):b)
+                let px = z * mx + ((z % 2) ? (mx-1-b):b)
                 arr_neop_strips[snr].setPixelColor(px, arr_neop_prop[snr].farbe)
             }
         }
@@ -142,10 +201,11 @@ function neop_schreibe_wort(snr:number,wort:string) {
        pause (arr_neop_prop[snr].wortPause)
    }
 }
-function mke_strip_prop (prop:neop) {
-
-
-
+function init_serie(system_anzahl:number) {
+    for (let i=0;i<system_anzahl;i++) {
+        init_neop_create(i);
+        init_neop_init(i);
+    }
 }
 
 // Variable
@@ -154,7 +214,6 @@ interface neop  {
     hwMatrix: Array<number>;
     helligkeit: number;
     farbe: number;
-    // swMatrix: Array<number>;
     wortPause: number;   
 }
 
@@ -175,61 +234,17 @@ let strip_anz:number=0;
 let bst_muster=[31,31,17,17,17,31,31];
 
 arr_neop_prop.push({pin:DigitalPin.P1,hwMatrix:[8,2],helligkeit:50,farbe:0x0000ff,wortPause:2000}) 
-arr_neop_prop.push({pin:DigitalPin.P3,hwMatrix:[8,2],helligkeit:50,farbe:0x00ff00,wortPause:2000}) 
-arr_neop_prop.push({pin:DigitalPin.P2,hwMatrix:[8,2],helligkeit:50,farbe:0xff0000,wortPause:2000}) 
+arr_neop_prop.push({pin:DigitalPin.P2,hwMatrix:[8,2],helligkeit:50,farbe:0x00ff00,wortPause:2000}) 
+arr_neop_prop.push({pin:DigitalPin.P8,hwMatrix:[8,2],helligkeit:50,farbe:0xff0000,wortPause:2000}) 
 
-for (let i=0;i<3;i++) {
-    init_neop_create(i);
-    init_neop_init(i);
-}
 
 
 basic.showIcon(IconNames.Yes)
 
 
-neop_schreibe_zch(0,"L")
-neop_schreibe_zch(1,"L")
-neop_schreibe_zch(2,"L")
+neop_schreibe_zch(0,"C")
+neop_schreibe_zch(1,"C")
+neop_schreibe_zch(2,"C")
 
 let akt_snr=0;
-
-
-
-
-function tests () {
-    //let arr_zeichen_matrix
-    // console.log(arr_zeichen_exists)
-    // let arr_zeichen_exists:Array<string>=[];
-
-    // arr_zeichen_tabelle.forEach (function (wert,index) {
-    //     console.log(index + " " + wert.bst)
-    // })
-    //neop_schreibe_zch("B")
-
-    // let wort:string="BaCHINGER#"
-    // for (let b:number=0;b<wort.length;b++) {
-    //     neop_schreibe_zch(wort[b]);
-    //     pause (1000)
-    // }
-
-}
-
-//     pin: DigitalPin.P1,
-//     hwMatrix: [8,8],
-//     helligkeit: 50,
-//     farbe: 0x0000FF,
-//     swMatrix: [8,8],
-//     muster: [31,31,17,17,17,31,31],
-//     wortPause: 2000   
-
-
-// interface neop  {
-//     pin: DigitalPin.P1,
-//     hwMatrix: [8,8],
-//     helligkeit: 50,
-//     farbe: 0x0000FF,
-//     swMatrix: [8,8],
-//     muster: [31,31,17,17,17,31,31],
-//     wortPause: 2000   
-// }
 

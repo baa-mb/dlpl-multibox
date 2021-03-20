@@ -193,7 +193,10 @@ function neop_schreibe_zch (snr:number,zch_str:string="A",color:number) {
     }    
 }
 
-
+function loesche_matrix(snr:number) {
+    arr_neop_strips[snr].clear()
+    arr_neop_strips[snr].show()
+}
 // Create and INIT #####################################
 function init_neop_create(snr:number) {
     let anz=arr_neop_strips.length;
@@ -220,9 +223,9 @@ function init_strip_serie() {
     }
 }
 function default_strip_data() {
-    arr_neop_settings.push({pin:DigitalPin.P1,hwMatrix:[8,4]}) 
-    arr_neop_settings.push({pin:DigitalPin.P2,hwMatrix:[8,2]}) 
-    arr_neop_settings.push({pin:DigitalPin.P8,hwMatrix:[8,2]}) 
+    arr_neop_settings.push({pin:arr_tech_pin[0],hwMatrix:arr_tech_matrix[0]}) 
+    arr_neop_settings.push({pin:arr_tech_pin[1],hwMatrix:arr_tech_matrix[1]}) 
+    arr_neop_settings.push({pin:arr_tech_pin[2],hwMatrix:arr_tech_matrix[1]}) 
 }
 
 function init_all_strips(helligkeit:number,zch_pause:number) {
@@ -256,6 +259,12 @@ interface zch_tab {
   bst: string;
   def: Array<number>;
 }
+
+// hardwareeinstellungen ########################### 3 Matriken
+let arr_tech_matrix=[[8,8],[5,7],[16,16]];
+let arr_tech_pin=[DigitalPin.P1,DigitalPin.P2,DigitalPin.P8];
+// hardwareeinstellungen end ###########################
+
 
 let bst_muster=[31,31,31,31,31,31,31,31];
 let shift:number=0

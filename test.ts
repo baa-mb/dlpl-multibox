@@ -2,4 +2,5 @@
 //neop_schreibe("C")
 
 // neop_schreibe_zch("A")
-// DLPLneopixel.schreibe_wort("CC")
+
+DLPLneopixel.schreibeText(1, "ABC", 120)

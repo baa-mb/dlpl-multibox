@@ -5,22 +5,26 @@
  * Weitere Informationen unter https://makecode.microbit.org/blocks/custom
  */
 
+
+
 enum selMatrix {
-    //% block="Matrix Mitte"
+    //% block="Mitte"
+    //% colorSecondary="#FFFFFF"
     mitte,
-    //% block="Matrix links"
+    //% block="links"
     links,
-    //% block="Matrix rechts"
+    //% block="rechts"
     rechts
 }
 
 enum defMatrix {
-    //% block="Matrix 5x7"
-    m5,
-    //% block="Matrix 8x8"
-    m8,
-    //% block="Matrix 16x16"
-    m16
+    //% colorSecondary="#FFFFFF"
+    //% block="5x7"
+    m0,
+    //% block="8x8"
+    m1,
+    //% block="16x16"
+    m2
 }
 
 
@@ -36,7 +40,7 @@ namespace DLPLneopixel {
     //% group="Grundeinstellungen"
     //% weight=100
     //% txt.defl="ABC"
-    //% block="schreibe auf = $snr den Text = $txt mit Farbe = $color"
+    //% block="schreibe auf Matrix = $snr den Text = $txt mit Farbe = $color"
     //% color.shadow="colorNumberPicker"
     export function schreibeText(snr:selMatrix,txt: string,color:number): void {
         neop_schreibe_zch(snr,txt,color)
@@ -46,16 +50,14 @@ namespace DLPLneopixel {
     //% helligkeit.defl=150 zch_pause.defl=2000
     //% block="setze Helligkeit der Pixel = $helligkeit und die Pausen bei Wortausgaben = $zch_pause"
     //% zch_pause.shadow="timePicker"
-    //% helligkeit.min=5 helligkeit.max=200
+    //% helligkeit.min=1 helligkeit.max=200
     export function all_strip_settings(helligkeit:number,zch_pause:number): void {
-        // init_all_strips(helligkeit,zch_pause);
-        init_all_strips(10,3000);
+        init_all_strips(helligkeit,zch_pause);
     }
 
-
-    //% block="Technische Definition der Matrix: %snr Pixelmatrix: %artMatrix"
+    //% block="Technische Definition der Matrix = %snr Pixelmatrix = %artMatrix"
     export function definitionMatrix(snr:selMatrix,artMatrix:defMatrix) {
-        console.log(snr+" "+artMatrix)       
+        console.log(snr+" "+artMatrix)     
     }
 
 }

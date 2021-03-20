@@ -146,11 +146,7 @@ function neop_schreibe_zch (snr:number,zch_str:string="A",color:number) {
     let my=arr_neop_settings[snr].hwMatrix[1];
     
     let is_type=0 
-    
-   
-
-
-
+ 
     let zch_len=zch_str.length
     if (zch_len>1) {
         is_type=1; //wort
@@ -234,10 +230,9 @@ function init_all_strips(helligkeit:number,zch_pause:number) {
     strip_pause=zch_pause;
     for (let i=0;i<neo_strip_anzahl;i++) {
         arr_neop_strips(i).setBrightness(strip_helligkeit);
+        console.log(i+" "+strip_helligkeit)
         // init_one_strip(i);
     }
-
-
 }
 
 
@@ -281,5 +276,5 @@ init_strip_serie();
 basic.showIcon(IconNames.Yes)
 // ende Initialisierung
 
-//test();
+test();
 

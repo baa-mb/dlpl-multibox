@@ -228,10 +228,11 @@ function default_strip_data() {
 function init_all_strips(helligkeit:number,zch_pause:number) {
     strip_helligkeit=helligkeit;
     strip_pause=zch_pause;
+    //console.log("helligkeit"+strip_helligkeit)
     for (let i=0;i<neo_strip_anzahl;i++) {
-        arr_neop_strips(i).setBrightness(strip_helligkeit);
-        console.log(i+" "+strip_helligkeit)
-        // init_one_strip(i);
+         arr_neop_strips[i].setBrightness(strip_helligkeit);
+         //console.log(i+" "+strip_helligkeit)
+         // init_one_strip(i);
     }
 }
 
@@ -276,5 +277,5 @@ init_strip_serie();
 basic.showIcon(IconNames.Yes)
 // ende Initialisierung
 
-test();
+//test();
 

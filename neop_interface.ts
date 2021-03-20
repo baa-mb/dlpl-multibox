@@ -5,12 +5,26 @@
  * Weitere Informationen unter https://makecode.microbit.org/blocks/custom
  */
 
-enum MyPin {
-    //% block="LinkeMatrix"
-    One,
-    //% block="RechteMatrix"
-    Two
+enum selMatrix {
+    //% block="Matrix Mitte"
+    mitte,
+    //% block="Matrix links"
+    links,
+    //% block="Matrix rechts"
+    rechts
 }
+
+enum defMatrix {
+    //% block="Matrix 5x7"
+    m5,
+    //% block="Matrix 8x8"
+    m8,
+    //% block="Matrix 16x16"
+    m16
+}
+
+
+
 
 /**
  * Benutzerdefinierte Blöcke
@@ -22,25 +36,27 @@ namespace DLPLneopixel {
     //% group="Grundeinstellungen"
     //% weight=100
     //% txt.defl="ABC"
-    //% block="schreibe auf Pixelmatrix = $snr den Text = $txt mit Farbe = $color"
+    //% block="schreibe auf = $snr den Text = $txt mit Farbe = $color"
     //% color.shadow="colorNumberPicker"
-    export function schreibeText(snr:number,txt: string,color:number): void {
+    export function schreibeText(snr:selMatrix,txt: string,color:number): void {
         neop_schreibe_zch(snr,txt,color)
     }
 
 
     //% helligkeit.defl=150 zch_pause.defl=2000
     //% block="setze Helligkeit der Pixel = $helligkeit und die Pausen bei Wortausgaben = $zch_pause"
-    //% color.shadow="colorNumberPicker"
+    //% zch_pause.shadow="timePicker"
+    //% helligkeit.min=5 helligkeit.max=200
     export function all_strip_settings(helligkeit:number,zch_pause:number): void {
-        init_all_strips(helligkeit,zch_pause);
+        // init_all_strips(helligkeit,zch_pause);
+        init_all_strips(10,3000);
     }
 
 
     //% block="setze Farbe $color"
     //% color.shadow="colorNumberPicker"
-    export function setColor(color: number) {
-        console.log(color)
+    export function definitionMatrix(snr:selMatrix,artMatrix:defMatrix) {
+        console.log(snr+" "+artMatrix)       
     }
 
 }

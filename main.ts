@@ -209,7 +209,7 @@ function init_neop_create(snr:number) {
 
     strip.setBrightness(strip_helligkeit)
 
-    console.log("hell:"+strip_helligkeit);
+    //console.log("hell:"+strip_helligkeit);
     strip.clear()
     strip.show()
 

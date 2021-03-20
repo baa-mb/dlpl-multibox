@@ -7,9 +7,10 @@
 
 
 
+
+
 enum selMatrix {
-    //% block="Mitte"
-    //% colorSecondary="#FFFFFF"
+    //% block="Haupt"
     mitte,
     //% block="links"
     links,
@@ -18,16 +19,13 @@ enum selMatrix {
 }
 
 enum defMatrix {
-    //% colorSecondary="#FFFFFF"
-    //% block="5x7"
-    m0,
     //% block="8x8"
+    m0,
+    //% block="5x7"
     m1,
     //% block="16x16"
     m2
 }
-
-
 
 
 /**
@@ -60,5 +58,18 @@ namespace DLPLneopixel {
     export function definitionMatrix(snr:selMatrix,artMatrix:defMatrix) {
         console.log(snr+" "+artMatrix)     
     }
+
+
+    //% snr.defl=0
+    //% block="lösche Matrix = %snr"
+    export function loescheMatrix(snr:selMatrix) {
+        loesche_matrix(snr)
+    }
+
+    // //% block="$x=variables_get(arr_matrix_tech)"
+    // export function foo(x: number) {
+
+    // }
+
 
 }

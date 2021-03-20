@@ -53,8 +53,7 @@ namespace DLPLneopixel {
     }
 
 
-    //% block="setze Farbe $color"
-    //% color.shadow="colorNumberPicker"
+    //% block="Technische Definition der Matrix: %snr Pixelmatrix: %artMatrix"
     export function definitionMatrix(snr:selMatrix,artMatrix:defMatrix) {
         console.log(snr+" "+artMatrix)       
     }

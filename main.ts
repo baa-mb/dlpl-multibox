@@ -209,19 +209,21 @@ function init_neop_create(snr:number) {
     arr_neop_strips.push(strip)
 
     strip.setBrightness(strip_helligkeit)
+
+    console.log("hell:"+strip_helligkeit);
     strip.clear()
     strip.show()
 
 }
 
 
-function init_strip_serie(system_anzahl:number) {
-    for (let i=0;i<system_anzahl;i++) {
+function init_strip_serie() {
+    for (let i=0;i<neo_strip_anzahl;i++) {
         init_neop_create(i);
         // init_one_strip(i);
     }
 }
-function strip_data_save() {
+function default_strip_data() {
     arr_neop_settings.push({pin:DigitalPin.P1,hwMatrix:[8,4]}) 
     arr_neop_settings.push({pin:DigitalPin.P2,hwMatrix:[8,2]}) 
     arr_neop_settings.push({pin:DigitalPin.P8,hwMatrix:[8,2]}) 
@@ -230,6 +232,12 @@ function strip_data_save() {
 function init_all_strips(helligkeit:number,zch_pause:number) {
     strip_helligkeit=helligkeit;
     strip_pause=zch_pause;
+    for (let i=0;i<neo_strip_anzahl;i++) {
+        arr_neop_strips(i).setBrightness(strip_helligkeit);
+        // init_one_strip(i);
+    }
+
+
 }
 
 
@@ -253,7 +261,6 @@ interface zch_tab {
   def: Array<number>;
 }
 
-let arr_farben=[0xFF0000,0xFFA500,0xFFFF00,0x00FF00,0x0000FF,0x4b0082,0x8a2be2,0xFF00FF,0xFFFFFF,0x000000]
 let bst_muster=[31,31,31,31,31,31,31,31];
 let shift:number=0
 let strip_helligkeit:number=100;
@@ -269,8 +276,8 @@ let neo_strip_anzahl:number=2;
 
 //beginn initialisierung ############################
 init_alphabet();
-strip_data_save();
-init_strip_serie(neo_strip_anzahl);
+default_strip_data();
+init_strip_serie();
 basic.showIcon(IconNames.Yes)
 // ende Initialisierung
 

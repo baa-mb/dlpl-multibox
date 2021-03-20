@@ -13,9 +13,7 @@
         "README.md",
         "neop_interface.ts"
     ],
-    "testFiles": [
-        "test.ts"
-    ],
+    "testFiles": [],
     "supportedTargets": [
         "microbit"
     ],

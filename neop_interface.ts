@@ -43,6 +43,7 @@ namespace DLPLneopixel {
     //% block="schreibe auf Matrix = $snr den Text = $txt mit Farbe = $color"
     //% color.shadow="colorNumberPicker"
     export function schreibeText(snr:selMatrix,txt: string,color:number): void {
+        console.log("zeige console")
         neop_schreibe_zch(snr,txt,color)
     }
 

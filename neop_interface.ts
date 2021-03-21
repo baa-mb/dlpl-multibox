@@ -6,9 +6,6 @@
  */
 
 
-
-
-
 enum nrMatrix {
     //% block="Haupt"
     mitte,
@@ -32,7 +29,7 @@ enum defMatrix {
  * Benutzerdefinierte Blöcke
  */
 //% color=190 weight=100 icon="\uf00a" block="DLPL-MultiBox"
-namespace DLPLneopixel {
+namespace DLPLmultibox {
 
     //% group="Technische Definition"
     //% pin.defl=1    
@@ -44,7 +41,7 @@ namespace DLPLneopixel {
 
     
     //% helligkeit.defl=150 zch_pause.defl=2000
-    //% block="Setze Helligkeit der Pixel auf %helligkeit, Pause bei einer Wortausgabe: %zch_pause ms"
+    //% block="Setze Helligkeit der Pixel auf %helligkeit, Pause bei einer Wortausgabe auf %zch_pause ms"
     //% zch_pause.shadow="timePicker"
     //% helligkeit.min=1 helligkeit.max=200
     //% weight=70

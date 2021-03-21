@@ -218,7 +218,7 @@ function loesche_matrix(snr:number) {
 // //     }
 // // }
 
-// muss sein, damit nicht 
+// muss sein, damit der index nicht fehlläuft
 function default_strip_data() {
     arr_neop_settings.push({pin:arr_tech_pin[0],hwMatrix:arr_tech_matrix[0]}) 
     arr_neop_settings.push({pin:arr_tech_pin[1],hwMatrix:arr_tech_matrix[1]}) 
@@ -236,6 +236,8 @@ function init_strip(nrMatrix:number,hwMatrix:number,pin:number) {
     arr_neop_strips[nrMatrix]=strip
     strip.clear()
     strip.show()
+
+    neo_strip_anzahl=Math.max(nrMatrix+1,neo_strip_anzahl)
 }
 
 
@@ -245,7 +247,7 @@ function set_helligkeit(helligkeit:number,zch_pause:number) {
     strip_pause=zch_pause;
     //console.log("helligkeit"+strip_helligkeit)
     for (let i=0;i<neo_strip_anzahl;i++) {
-         arr_neop_strips[i].setBrightness(strip_helligkeit);
+        arr_neop_strips[i].setBrightness(strip_helligkeit);
     }
 }
 
@@ -298,7 +300,7 @@ let arr_zeichen:number[][];
 let bst_reihe:string="";
 
 //let arr_zeichen_tabelle:Array<zch_tab>;
-let neo_strip_anzahl:number=3;
+let neo_strip_anzahl:number=1;
 // ende variable
 
 //beginn initialisierung ############################

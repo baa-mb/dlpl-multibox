@@ -39,7 +39,6 @@ namespace DLPLneopixel {
     //% block="Technische Definition: Matrix:%snr mit Technik %hwMatrix ist an Pin %pinNr angeschlossen."
     //% weight=80 
     export function definitionMatrix(snr:nrMatrix,hwMatrix:defMatrix,pin:number) {
-        //console.log(snr+" "+hwMatrix+" "+pinNr)     
         init_strip(snr,hwMatrix,pin)
     }
 

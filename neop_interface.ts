@@ -36,34 +36,39 @@ namespace DLPLneopixel {
 
     //% group="Grundeinstellungen"
 
-    //% weight=50
+    
     //% helligkeit.defl=150 zch_pause.defl=2000
     //% block="setze Helligkeit der Pixel = $helligkeit und die Pausen bei Wortausgaben = $zch_pause"
     //% zch_pause.shadow="timePicker"
     //% helligkeit.min=1 helligkeit.max=200
+    //% weight=100
     export function all_strip_settings(helligkeit:number,zch_pause:number): void {
         init_all_strips(helligkeit,zch_pause);
     }
 
-    //% weight=40
+    
     //% block="Technische Definition der Matrix = %snr Pixelmatrix = %artMatrix"
+    //% weight=80
     export function definitionMatrix(snr:selMatrix,artMatrix:defMatrix) {
         console.log(snr+" "+artMatrix)     
     }
 
     //% group="Befehle"
 
-    //% weight=30
+    
     //% txt.defl="ABC"
     //% block="schreibe auf Matrix = $snr den Text = $txt mit Farbe = $color"
     //% color.shadow="colorNumberPicker"
+    //% weight=50
     export function schreibeText(snr:selMatrix,txt: string,color:number): void {
         neop_schreibe_zch(snr,txt,color)
     }
 
-    //% weight=10
+
+
     //% snr.defl=0
     //% block="lösche Matrix = %snr"
+    //% weight=30
     export function loescheMatrix(snr:selMatrix) {
         loesche_matrix(snr)
     }

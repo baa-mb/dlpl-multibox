@@ -35,23 +35,23 @@ enum defMatrix {
 namespace DLPLneopixel {
 
     //% group="Grundeinstellungen"
+    
+    //% block="Technische Definition der Matrix = %snr Pixelmatrix = %artMatrix" an Pin Nr. = %pinNr
+    //% weight=80
+    export function definitionMatrix(snr:selMatrix,artMatrix:defMatrix,pinNr:number) {
+        console.log(snr+" "+artMatrix+" "+pinNr)     
+    }
 
     
     //% helligkeit.defl=150 zch_pause.defl=2000
     //% block="setze Helligkeit der Pixel = $helligkeit und die Pausen bei Wortausgaben = $zch_pause"
     //% zch_pause.shadow="timePicker"
     //% helligkeit.min=1 helligkeit.max=200
-    //% weight=100
+    //% weight=70
     export function all_strip_settings(helligkeit:number,zch_pause:number): void {
         init_all_strips(helligkeit,zch_pause);
     }
 
-    
-    //% block="Technische Definition der Matrix = %snr Pixelmatrix = %artMatrix"
-    //% weight=80
-    export function definitionMatrix(snr:selMatrix,artMatrix:defMatrix) {
-        console.log(snr+" "+artMatrix)     
-    }
 
     //% group="Befehle"
 

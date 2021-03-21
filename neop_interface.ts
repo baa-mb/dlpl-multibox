@@ -36,7 +36,7 @@ namespace DLPLneopixel {
 
     //% group="Technische Definition"
     //% pin.defl=1    
-    //% block="Die Matrix:%snr mit Technik %hwMatrix ist an Pin %pin angeschlossen."
+    //% block="Die Matrix %snr mit Technik %hwMatrix ist an Pin %pin angeschlossen."
     //% weight=80 
     export function definitionMatrix(snr:nrMatrix,hwMatrix:defMatrix,pin:number) {
         init_strip(snr,hwMatrix,pin)
@@ -44,7 +44,7 @@ namespace DLPLneopixel {
 
     
     //% helligkeit.defl=150 zch_pause.defl=2000
-    //% block="setze Helligkeit der Pixel auf %helligkeit und die Pausen bei Wortausgaben auf %zch_pause ms"
+    //% block="Setze Helligkeit der Pixel auf %helligkeit, Pause bei einer Wortausgabe: %zch_pause ms"
     //% zch_pause.shadow="timePicker"
     //% helligkeit.min=1 helligkeit.max=200
     //% weight=70
@@ -57,7 +57,7 @@ namespace DLPLneopixel {
 
     
     //% txt.defl="ABC"
-    //% block="schreibe auf Matrix = $snr den Text = $txt mit Farbe = $color"
+    //% block="Schreibe auf Matrix $snr den Text = $txt mit Farbe = $color"
     //% color.shadow="colorNumberPicker"
     //% weight=50
     export function schreibeText(snr:nrMatrix,txt: string,color:number): void {
@@ -67,7 +67,7 @@ namespace DLPLneopixel {
 
 
     //% snr.defl=0
-    //% block="lösche Matrix = %snr"
+    //% block="Lösche Matrix %snr"
     //% weight=30
     export function loescheMatrix(snr:nrMatrix) {
         loesche_matrix(snr)

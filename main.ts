@@ -217,30 +217,25 @@ function loesche_matrix(snr:number) {
 // //         // init_one_strip(i);
 // //     }
 // // }
-// function default_strip_data() {
-//     arr_neop_settings.push({pin:arr_tech_pin[0],hwMatrix:arr_tech_matrix[0]}) 
-//     arr_neop_settings.push({pin:arr_tech_pin[1],hwMatrix:arr_tech_matrix[1]}) 
-//     arr_neop_settings.push({pin:arr_tech_pin[2],hwMatrix:arr_tech_matrix[1]}) 
-// }
+
+// muss sein, damit nicht 
+function default_strip_data() {
+    arr_neop_settings.push({pin:arr_tech_pin[0],hwMatrix:arr_tech_matrix[0]}) 
+    arr_neop_settings.push({pin:arr_tech_pin[1],hwMatrix:arr_tech_matrix[1]}) 
+    arr_neop_settings.push({pin:arr_tech_pin[2],hwMatrix:arr_tech_matrix[1]}) 
+}
 
 function init_strip(nrMatrix:number,hwMatrix:number,pin:number) {
-    //console.log(pin+" "+nrMatrix+" "+hwMatrix)
-
     arr_neop_settings[nrMatrix].pin=pin;
     arr_neop_settings[nrMatrix].hwMatrix=arr_tech_matrix[hwMatrix];
-    
+
     let pixelAnzahl=arr_tech_matrix[nrMatrix][0]*arr_tech_matrix[nrMatrix][1]
     
     let strip=neopixel.create(arr_tech_pin[pin], pixelAnzahl, NeoPixelMode.RGB)
-    console.log(arr_tech_pin[pin] +" "+ pixelAnzahl)
     strip.setBrightness(strip_helligkeit)
-
     arr_neop_strips[nrMatrix]=strip
-
     strip.clear()
     strip.show()
-    //console.log("hell:"+strip_helligkeit);
-    //console.log(arr_neop_settings[nrMatrix])
 }
 
 
@@ -264,14 +259,14 @@ function test() {
     if (neo_strip_anzahl>1) neop_schreibe_zch(0,"AB",NeoPixelColors.Green)
     if (neo_strip_anzahl>2) neop_schreibe_zch(2,"12340",NeoPixelColors.Blue)
 }
-function zerlege() {
-    arr_zeichen_tabelle.forEach(function(obj) {
-        console.log("["+obj.def.join(",")+"],")
-    })
-    arr_zeichen_tabelle.forEach(function(obj) {
-        console.log(obj.bst)
-    })
-}
+// function zerlege() {
+//     arr_zeichen_tabelle.forEach(function(obj) {
+//         console.log("["+obj.def.join(",")+"],")
+//     })
+//     arr_zeichen_tabelle.forEach(function(obj) {
+//         console.log(obj.bst)
+//     })
+// }
 
 // variable ########################################
 interface neop  {
@@ -279,14 +274,14 @@ interface neop  {
     hwMatrix: Array<number>;
 }
 
-interface zch_tab {
-  bst: string;
-  def: Array<number>;
-}
+// interface zch_tab {
+//   bst: string;
+//   def: Array<number>;
+// }
 
 // hardwareeinstellungen ########################### 3 Matriken
 let arr_tech_matrix=[[8,8],[5,7],[16,16]];
-let arr_tech_pin=[0,DigitalPin.P1,DigitalPin.P2,0,0,0,0,0,DigitalPin.P8];
+let arr_tech_pin=[DigitalPin.P0,DigitalPin.P1,DigitalPin.P2,DigitalPin.P3,DigitalPin.P4,DigitalPin.P5,DigitalPin.P6,DigitalPin.P7,DigitalPin.P8];
 // hardwareeinstellungen end ###########################
 
 
@@ -302,13 +297,13 @@ let arr_neop_settings:Array<neop>=[]
 let arr_zeichen:number[][];
 let bst_reihe:string="";
 
-let arr_zeichen_tabelle:Array<zch_tab>;
+//let arr_zeichen_tabelle:Array<zch_tab>;
 let neo_strip_anzahl:number=3;
 // ende variable
 
 //beginn initialisierung ############################
 init_alphabet();
-//default_strip_data();
+default_strip_data();
 //init_strip_serie();
 basic.showIcon(IconNames.Yes)
 // ende Initialisierung

@@ -50,7 +50,7 @@ namespace DLPLneopixel {
     //% helligkeit.min=1 helligkeit.max=200
     //% weight=70
     export function all_strip_settings(helligkeit:number,zch_pause:number): void {
-        init_all_strips(helligkeit,zch_pause);
+        set_helligkeit(helligkeit,zch_pause);
     }
 
 

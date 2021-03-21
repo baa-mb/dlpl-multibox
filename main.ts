@@ -200,8 +200,8 @@ function init_neop_create(snr:number) {
     let pixelAnzahl=arr_neop_settings[snr].hwMatrix[0] * arr_neop_settings[snr].hwMatrix [1];
 
     let strip=neopixel.create(pin, pixelAnzahl, NeoPixelMode.RGB)
-    arr_neop_strips.push(strip)
-
+    // arr_neop_strips.push(strip)
+    arr_neop_strips[snr]=strip
     strip.setBrightness(strip_helligkeit)
 
     //console.log("hell:"+strip_helligkeit);
@@ -211,33 +211,43 @@ function init_neop_create(snr:number) {
 }
 
 
-function init_strip_serie() {
-    for (let i=0;i<neo_strip_anzahl;i++) {
-        init_neop_create(i);
-        // init_one_strip(i);
-    }
+// // function init_strip_serie() {
+// //     for (let i=0;i<neo_strip_anzahl;i++) {
+// //         init_neop_create(i);
+// //         // init_one_strip(i);
+// //     }
+// // }
+// function default_strip_data() {
+//     arr_neop_settings.push({pin:arr_tech_pin[0],hwMatrix:arr_tech_matrix[0]}) 
+//     arr_neop_settings.push({pin:arr_tech_pin[1],hwMatrix:arr_tech_matrix[1]}) 
+//     arr_neop_settings.push({pin:arr_tech_pin[2],hwMatrix:arr_tech_matrix[1]}) 
+// }
+
+function set_strip_data(pin:number,nrMatrix:number,hwMatrix:number) {
+    //console.log(pin+" "+nrMatrix+" "+hwMatrix)
+
+    arr_neop_settings[nrMatrix].pin=pin;
+    arr_neop_settings[nrMatrix].hwMatrix=arr_tech_matrix[hwMatrix];
+    
+    let pixelAnzahl=arr_tech_matrix[nrMatrix][0]*arr_tech_matrix[nrMatrix][1]
+    let strip=neopixel.create(arr_tech_pin[pin], pixelAnzahl, NeoPixelMode.RGB)
+    strip.setBrightness(strip_helligkeit)
+    arr_neop_strips[nrMatrix]=strip
+
+    strip.clear()
+    strip.show()
+    //console.log("hell:"+strip_helligkeit);
+    //console.log(arr_neop_settings[nrMatrix])
 }
-function default_strip_data() {
-    arr_neop_settings.push({pin:arr_tech_pin[0],hwMatrix:arr_tech_matrix[0]}) 
-    arr_neop_settings.push({pin:arr_tech_pin[1],hwMatrix:arr_tech_matrix[1]}) 
-    arr_neop_settings.push({pin:arr_tech_pin[2],hwMatrix:arr_tech_matrix[1]}) 
-}
-
-function set_strip_data(pin:number,matrixNr:number,matrixHwNr:number) {
-    arr_neop_settings[matrixNr].pin=pin;
-    arr_neop_settings[matrixNr].hwMatrix=arr_tech_matrix[matrixHwNr];
-}
 
 
 
-function init_all_strips(helligkeit:number,zch_pause:number) {
+function set_helligkeit(helligkeit:number,zch_pause:number) {
     strip_helligkeit=helligkeit;
     strip_pause=zch_pause;
     //console.log("helligkeit"+strip_helligkeit)
     for (let i=0;i<neo_strip_anzahl;i++) {
          arr_neop_strips[i].setBrightness(strip_helligkeit);
-         //console.log(i+" "+strip_helligkeit)
-         // init_one_strip(i);
     }
 }
 
@@ -273,7 +283,7 @@ interface zch_tab {
 
 // hardwareeinstellungen ########################### 3 Matriken
 let arr_tech_matrix=[[8,8],[5,7],[16,16]];
-let arr_tech_pin=[DigitalPin.P1,DigitalPin.P2,DigitalPin.P8];
+let arr_tech_pin=[0,DigitalPin.P1,DigitalPin.P2,0,0,0,0,0,DigitalPin.P8];
 // hardwareeinstellungen end ###########################
 
 
@@ -296,8 +306,8 @@ let neo_strip_anzahl:number=3;
 
 //beginn initialisierung ############################
 init_alphabet();
-default_strip_data();
-init_strip_serie();
+//default_strip_data();
+//init_strip_serie();
 basic.showIcon(IconNames.Yes)
 // ende Initialisierung
 

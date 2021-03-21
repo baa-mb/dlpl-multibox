@@ -1,5 +1,5 @@
 
-> Diese Seite bei [https://baa-mb.github.io/dlpl-multibox-04/](https://baa-mb.github.io/dlpl-multibox-04/) öffnen
+> Diese Seite bei [https://baa-mb.github.io/dlpl-multibox/](https://baa-mb.github.io/dlpl-multibox/) öffnen
 
 ## Als Erweiterung verwenden
 

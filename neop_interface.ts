@@ -36,9 +36,10 @@ namespace DLPLneopixel {
 
     //% group="Grundeinstellungen"
     
-    //% block="Technische Definition der Matrix = %snr Pixelmatrix = %artMatrix" an Pin Nr. = %pinNr
+    //% block="Technische Definition: An Pin: %pinNr ist die Matrix:%snr mit %artMatrix angeschlossen"
+    
     //% weight=80
-    export function definitionMatrix(snr:selMatrix,artMatrix:defMatrix,pinNr:number) {
+    export function definitionMatrix(pinNr:number,snr:selMatrix,artMatrix:defMatrix) {
         console.log(snr+" "+artMatrix+" "+pinNr)     
     }
 

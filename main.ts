@@ -193,22 +193,22 @@ function loesche_matrix(snr:number) {
     arr_neop_strips[snr].show()
 }
 // Create and INIT #####################################
-function init_neop_create(snr:number) {
-    let anz=arr_neop_strips.length;
-    let pin=arr_neop_settings[snr].pin;
-    let farbe=neopixel.colors(NeoPixelColors.Red);
-    let pixelAnzahl=arr_neop_settings[snr].hwMatrix[0] * arr_neop_settings[snr].hwMatrix [1];
+// function init_neop_create(snr:number) {
+//     let anz=arr_neop_strips.length;
+//     let pin=arr_neop_settings[snr].pin;
+//     let farbe=neopixel.colors(NeoPixelColors.Red);
+//     let pixelAnzahl=arr_neop_settings[snr].hwMatrix[0] * arr_neop_settings[snr].hwMatrix [1];
 
-    let strip=neopixel.create(pin, pixelAnzahl, NeoPixelMode.RGB)
-    // arr_neop_strips.push(strip)
-    arr_neop_strips[snr]=strip
-    strip.setBrightness(strip_helligkeit)
+//     let strip=neopixel.create(pin, pixelAnzahl, NeoPixelMode.RGB)
+//     // arr_neop_strips.push(strip)
+//     arr_neop_strips[snr]=strip
+//     strip.setBrightness(strip_helligkeit)
 
-    //console.log("hell:"+strip_helligkeit);
-    strip.clear()
-    strip.show()
+//     //console.log("hell:"+strip_helligkeit);
+//     strip.clear()
+//     strip.show()
 
-}
+// }
 
 
 // // function init_strip_serie() {
@@ -223,7 +223,7 @@ function init_neop_create(snr:number) {
 //     arr_neop_settings.push({pin:arr_tech_pin[2],hwMatrix:arr_tech_matrix[1]}) 
 // }
 
-function set_strip_data(pin:number,nrMatrix:number,hwMatrix:number) {
+function init_strip(nrMatrix:number,hwMatrix:number,pin:number) {
     //console.log(pin+" "+nrMatrix+" "+hwMatrix)
 
     arr_neop_settings[nrMatrix].pin=pin;
@@ -251,14 +251,7 @@ function set_helligkeit(helligkeit:number,zch_pause:number) {
     }
 }
 
-function zerlege() {
-    arr_zeichen_tabelle.forEach(function(obj) {
-        console.log("["+obj.def.join(",")+"],")
-    })
-    arr_zeichen_tabelle.forEach(function(obj) {
-        console.log(obj.bst)
-    })
-}
+
 
 // testbetrieb
 function test() {
@@ -268,7 +261,14 @@ function test() {
     if (neo_strip_anzahl>1) neop_schreibe_zch(0,"AB",NeoPixelColors.Green)
     if (neo_strip_anzahl>2) neop_schreibe_zch(2,"12340",NeoPixelColors.Blue)
 }
-
+function zerlege() {
+    arr_zeichen_tabelle.forEach(function(obj) {
+        console.log("["+obj.def.join(",")+"],")
+    })
+    arr_zeichen_tabelle.forEach(function(obj) {
+        console.log(obj.bst)
+    })
+}
 
 // variable ########################################
 interface neop  {
@@ -298,7 +298,6 @@ let arr_neop_settings:Array<neop>=[]
 
 let arr_zeichen:number[][];
 let bst_reihe:string="";
-
 
 let arr_zeichen_tabelle:Array<zch_tab>;
 let neo_strip_anzahl:number=3;

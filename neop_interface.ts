@@ -36,11 +36,11 @@ namespace DLPLneopixel {
 
     //% group="Grundeinstellungen"
     //% pin.defl=1    
-    //% block="Technische Definition: An Pin: %pinNr ist die Matrix:%snr mit %hwMatrix angeschlossen"
+    //% block="Technische Definition: Matrix:%snr mit Technik %hwMatrix ist an Pin %pinNr angeschlossen."
     //% weight=80 
-    export function definitionMatrix(pin:number,snr:nrMatrix,hwMatrix:defMatrix) {
+    export function definitionMatrix(snr:nrMatrix,hwMatrix:defMatrix,pin:number) {
         //console.log(snr+" "+hwMatrix+" "+pinNr)     
-        set_strip_data(pin,snr,hwMatrix)
+        init_strip(snr,hwMatrix,pin)
     }
 
     

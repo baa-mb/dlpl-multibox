@@ -32,7 +32,7 @@ enum defMatrix {
  * Benutzerdefinierte Blöcke
  */
 //% color=190 weight=100 icon="\uf00a" block="DLPL Neopixel"
-//% groups=['Einstellungen', 'Befehle', 'others']
+
 namespace DLPLneopixel {
 
 
@@ -64,17 +64,12 @@ namespace DLPLneopixel {
     }
 
 
-    //% weight=31
+    //% weight=1
     //% snr.defl=0
     //% block="lösche Matrix = %snr"
     export function loescheMatrix(snr:selMatrix) {
         loesche_matrix(snr)
     }
-
-    // //% block="$x=variables_get(arr_matrix_tech)"
-    // export function foo(x: number) {
-
-    // }
 
 
 }

@@ -8,7 +8,7 @@ Dieses Repository kann als **Erweiterung** in MakeCode hinzugefügt werden.
 * öffne [https://makecode.microbit.org/](https://makecode.microbit.org/)
 * klicke auf **Neues Projekt**
 * klicke auf **Erweiterungen** unter dem Zahnrad-Menü
-* nach **https://github.com/baa-mb/dlpl-multibox-04** suchen und importieren
+* nach **https://github.com/baa-mb/dlpl-multibox** suchen und importieren
 
 ## Dieses Projekt bearbeiten ![Build Status Abzeichen](https://github.com/baa-mb/dlpl-multibox-04/workflows/MakeCode/badge.svg)
 

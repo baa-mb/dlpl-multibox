@@ -32,9 +32,7 @@ enum defMatrix {
  * Benutzerdefinierte Blöcke
  */
 //% color=190 weight=100 icon="\uf00a" block="DLPL Neopixel"
-
 namespace DLPLneopixel {
-
 
     //% group="Grundeinstellungen"
 
@@ -63,8 +61,7 @@ namespace DLPLneopixel {
         neop_schreibe_zch(snr,txt,color)
     }
 
-
-    //% weight=1
+    //% weight=10
     //% snr.defl=0
     //% block="lösche Matrix = %snr"
     export function loescheMatrix(snr:selMatrix) {

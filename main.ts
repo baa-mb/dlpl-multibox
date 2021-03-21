@@ -256,7 +256,7 @@ function neop_schreibe_zch (snr:number,zch_str:string="A",color:number) {
         is_type=1; //wort
         //let arr_split;
         let arr_split=zch_str.split(",")
-        if (arr_split.length>4) {
+        if (arr_split.length>2) {
             is_type=2; //array
             //zeichen_matrix=arr_split.map(wert => function ():number {return Number(wert)} );
             zeichen_matrix=arr_split.map(wert => parseInt(wert));
@@ -380,9 +380,9 @@ let arr_tech_pin=[DigitalPin.P1,DigitalPin.P2,DigitalPin.P8];
 // hardwareeinstellungen end ###########################
 
 
-let bst_muster=[31,31,31,31,31,31,31,31];
+let bst_muster=[31,31,31,31];
 let shift:number=0
-let strip_helligkeit:number=100;
+let strip_helligkeit:number=50;
 let strip_pause:number=2000;
 
 

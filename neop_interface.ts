@@ -46,7 +46,8 @@ namespace DLPLneopixel {
     export function all_strip_settings(helligkeit:number,zch_pause:number): void {
         init_all_strips(helligkeit,zch_pause);
     }
-    //% weight=30
+
+    //% weight=40
     //% block="Technische Definition der Matrix = %snr Pixelmatrix = %artMatrix"
     export function definitionMatrix(snr:selMatrix,artMatrix:defMatrix) {
         console.log(snr+" "+artMatrix)     
@@ -54,7 +55,7 @@ namespace DLPLneopixel {
 
     //% group="Befehle"
 
-    //% weight=50
+    //% weight=30
     //% txt.defl="ABC"
     //% block="schreibe auf Matrix = $snr den Text = $txt mit Farbe = $color"
     //% color.shadow="colorNumberPicker"
@@ -63,7 +64,7 @@ namespace DLPLneopixel {
     }
 
 
-    //% weight=40
+    //% weight=20
     //% snr.defl=0
     //% block="lösche Matrix = %snr"
     export function loescheMatrix(snr:selMatrix) {

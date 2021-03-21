@@ -1,6 +1,6 @@
 
 function init_alphabet() {
-
+    //bstreihenfolge einhalten
     bst_reihe="?ABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÜäöüZ0123456789!?.,*+-=≠:%abcdefghijklmnopqrstuvwxyz#$&()/@;<>[]|{}~€"
 
     arr_zeichen = [

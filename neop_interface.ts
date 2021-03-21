@@ -57,14 +57,12 @@ namespace DLPLneopixel {
 
     
     //% txt.defl="ABC"
-    //% block="Schreibe auf Matrix $snr den Text = $txt mit Farbe = $color"
+    //% block="Schreibe auf Matrix $snr den Text $txt mit Farbe $color"
     //% color.shadow="colorNumberPicker"
     //% weight=50
     export function schreibeText(snr:nrMatrix,txt: string,color:number): void {
         neop_schreibe_zch(snr,txt,color)
     }
-
-
 
     //% snr.defl=0
     //% block="Lösche Matrix %snr"

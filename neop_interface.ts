@@ -44,7 +44,7 @@ namespace DLPLneopixel {
 
     
     //% helligkeit.defl=150 zch_pause.defl=2000
-    //% block="setze Helligkeit der Pixel = $helligkeit und die Pausen bei Wortausgaben = $zch_pause"
+    //% block="setze Helligkeit der Pixel auf $helligkeit und die Pausen bei Wortausgaben auf $zch_pause ms"
     //% zch_pause.shadow="timePicker"
     //% helligkeit.min=1 helligkeit.max=200
     //% weight=70

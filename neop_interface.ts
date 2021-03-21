@@ -35,17 +35,10 @@ enum defMatrix {
 //% groups=['Einstellungen', 'Befehle', 'others']
 namespace DLPLneopixel {
 
+
     //% group="Grundeinstellungen"
-    //% weight=100
-    //% txt.defl="ABC"
-    //% block="schreibe auf Matrix = $snr den Text = $txt mit Farbe = $color"
-    //% color.shadow="colorNumberPicker"
-    export function schreibeText(snr:selMatrix,txt: string,color:number): void {
-        console.log("zeige console")
-        neop_schreibe_zch(snr,txt,color)
-    }
 
-
+    //% weight=50
     //% helligkeit.defl=150 zch_pause.defl=2000
     //% block="setze Helligkeit der Pixel = $helligkeit und die Pausen bei Wortausgaben = $zch_pause"
     //% zch_pause.shadow="timePicker"
@@ -53,13 +46,24 @@ namespace DLPLneopixel {
     export function all_strip_settings(helligkeit:number,zch_pause:number): void {
         init_all_strips(helligkeit,zch_pause);
     }
-
+    //% weight=30
     //% block="Technische Definition der Matrix = %snr Pixelmatrix = %artMatrix"
     export function definitionMatrix(snr:selMatrix,artMatrix:defMatrix) {
         console.log(snr+" "+artMatrix)     
     }
 
+    //% group="Befehle"
 
+    //% weight=50
+    //% txt.defl="ABC"
+    //% block="schreibe auf Matrix = $snr den Text = $txt mit Farbe = $color"
+    //% color.shadow="colorNumberPicker"
+    export function schreibeText(snr:selMatrix,txt: string,color:number): void {
+        neop_schreibe_zch(snr,txt,color)
+    }
+
+
+    //% weight=40
     //% snr.defl=0
     //% block="lösche Matrix = %snr"
     export function loescheMatrix(snr:selMatrix) {

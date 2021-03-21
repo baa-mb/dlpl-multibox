@@ -64,7 +64,7 @@ namespace DLPLneopixel {
     }
 
 
-    //% weight=20
+    //% weight=31
     //% snr.defl=0
     //% block="lösche Matrix = %snr"
     export function loescheMatrix(snr:selMatrix) {

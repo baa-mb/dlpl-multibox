@@ -9,7 +9,7 @@
 
 
 
-enum selMatrix {
+enum nrMatrix {
     //% block="Haupt"
     mitte,
     //% block="links"
@@ -36,11 +36,12 @@ namespace DLPLneopixel {
 
     //% group="Grundeinstellungen"
     
-    //% block="Technische Definition: An Pin: %pinNr ist die Matrix:%snr mit %artMatrix angeschlossen"
+    //% block="Technische Definition: An Pin: %pinNr ist die Matrix:%snr mit %hwMatrix angeschlossen"
     
     //% weight=80
-    export function definitionMatrix(pinNr:number,snr:selMatrix,artMatrix:defMatrix) {
-        console.log(snr+" "+artMatrix+" "+pinNr)     
+    export function definitionMatrix(pin:number,snr:nrMatrix,hwMatrix:defMatrix) {
+        //console.log(snr+" "+hwMatrix+" "+pinNr)     
+        set_strip_data(pin,snr,hwMatrix)
     }
 
     
@@ -61,7 +62,7 @@ namespace DLPLneopixel {
     //% block="schreibe auf Matrix = $snr den Text = $txt mit Farbe = $color"
     //% color.shadow="colorNumberPicker"
     //% weight=50
-    export function schreibeText(snr:selMatrix,txt: string,color:number): void {
+    export function schreibeText(snr:nrMatrix,txt: string,color:number): void {
         neop_schreibe_zch(snr,txt,color)
     }
 
@@ -70,7 +71,7 @@ namespace DLPLneopixel {
     //% snr.defl=0
     //% block="lösche Matrix = %snr"
     //% weight=30
-    export function loescheMatrix(snr:selMatrix) {
+    export function loescheMatrix(snr:nrMatrix) {
         loesche_matrix(snr)
     }
 

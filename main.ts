@@ -114,8 +114,8 @@
 
 function init_alphabet() {
 
-bst_reihe="?ABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÜäöüZ0123456789!?.,*+-=≠:%abcdefghijklmnopqrstuvwxyz#$&()/@;<>[]|{}~€"
-
+// bst_reihe="?ABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÜäöüZ0123456789!?.,*+-=≠:%abcdefghijklmnopqrstuvwxyz#$&()/@;<>[]|{}~€"
+bst_reihe="?ABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÜäöüZ0123456789!?"
 
 arr_zeichen = [
 [14,17,1,2,4,0,4],
@@ -360,7 +360,7 @@ function zerlege() {
 
 // testbetrieb
 function test() {
-    console.log(arr_zeichen_tabelle.length);
+    //console.log(arr_zeichen_tabelle.length);
     neop_schreibe_zch(0,"31,17,17,31,31",NeoPixelColors.Red)
     if (neo_strip_anzahl>1) neop_schreibe_zch(1,"AB",NeoPixelColors.Green)
     if (neo_strip_anzahl>2) neop_schreibe_zch(2,"12340",NeoPixelColors.Blue)

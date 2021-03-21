@@ -31,7 +31,7 @@ enum defMatrix {
 /**
  * Benutzerdefinierte Blöcke
  */
-//% color=190 weight=100 icon="\uf00a" block="DLPL Neopixel"
+//% color=190 weight=100 icon="\uf00a" block="DLPL-MultiBox"
 namespace DLPLneopixel {
 
     //% group="Technische Definition"

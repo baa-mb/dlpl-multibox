@@ -230,8 +230,11 @@ function init_strip(nrMatrix:number,hwMatrix:number,pin:number) {
     arr_neop_settings[nrMatrix].hwMatrix=arr_tech_matrix[hwMatrix];
     
     let pixelAnzahl=arr_tech_matrix[nrMatrix][0]*arr_tech_matrix[nrMatrix][1]
+    
     let strip=neopixel.create(arr_tech_pin[pin], pixelAnzahl, NeoPixelMode.RGB)
+    console.log(arr_tech_pin[pin] +" "+ pixelAnzahl)
     strip.setBrightness(strip_helligkeit)
+
     arr_neop_strips[nrMatrix]=strip
 
     strip.clear()

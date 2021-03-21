@@ -34,9 +34,9 @@ enum defMatrix {
 //% color=190 weight=100 icon="\uf00a" block="DLPL Neopixel"
 namespace DLPLneopixel {
 
-    //% group="Grundeinstellungen"
+    //% group="Technische Definition"
     //% pin.defl=1    
-    //% block="Technische Definition: Matrix:%snr mit Technik %hwMatrix ist an Pin %pinNr angeschlossen."
+    //% block="Die Matrix:%snr mit Technik %hwMatrix ist an Pin %pin angeschlossen."
     //% weight=80 
     export function definitionMatrix(snr:nrMatrix,hwMatrix:defMatrix,pin:number) {
         init_strip(snr,hwMatrix,pin)
@@ -44,7 +44,7 @@ namespace DLPLneopixel {
 
     
     //% helligkeit.defl=150 zch_pause.defl=2000
-    //% block="setze Helligkeit der Pixel auf $helligkeit und die Pausen bei Wortausgaben auf $zch_pause ms"
+    //% block="setze Helligkeit der Pixel auf %helligkeit und die Pausen bei Wortausgaben auf %zch_pause ms"
     //% zch_pause.shadow="timePicker"
     //% helligkeit.min=1 helligkeit.max=200
     //% weight=70

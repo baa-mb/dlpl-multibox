@@ -4,8 +4,8 @@ function init_alphabet() {
     bst_reihe="? ABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÜäöüZ0123456789!?.,*+-=≠:%abcdefghijklmnopqrstuvwxyz#$&()/@;<>[]|{}~€"
 
     arr_zeichen = [
-    [0,0,0,0,0,0,0],
     [14,17,1,2,4,0,4],
+    [0,0,0,0,0,0,0],
     [14,17,17,31,17,17,17],
     [30,17,17,30,17,17,30],
     [14,17,16,16,16,17,14],
@@ -160,7 +160,6 @@ function neop_schreibe_zch (snr:number,zch_str:string="A",color:number) {
             let zch:string = zch_str[n]
             //let found=arr_zeichen_tabelle.find(elem => elem.bst === zch);
             let found=bst_reihe.indexOf(zch);
-           
             if (found==-1) {
                 found=0;
             }
@@ -256,9 +255,11 @@ function set_helligkeit(helligkeit:number,zch_pause:number) {
 
 // testbetrieb
 function test() {
+    init_strip(0,0,1) 
+    neop_schreibe_zch(0,"B CA",NeoPixelColors.Red)
     //console.log(arr_zeichen_tabelle.length);
-    neop_schreibe_zch(0,"31,31,17,31,31",NeoPixelColors.Red)
-    pause (3000)
+    //neop_schreibe_zch(0,"31,31,17,31,31",NeoPixelColors.Red)
+    //pause (3000)
     if (neo_strip_anzahl>1) neop_schreibe_zch(0,"AB",NeoPixelColors.Green)
     if (neo_strip_anzahl>2) neop_schreibe_zch(2,"12340",NeoPixelColors.Blue)
 }

@@ -1,9 +1,10 @@
 
 function init_alphabet() {
     //bstreihenfolge einhalten
-    bst_reihe="?ABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÜäöüZ0123456789!?.,*+-=≠:%abcdefghijklmnopqrstuvwxyz#$&()/@;<>[]|{}~€"
+    bst_reihe="? ABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÜäöüZ0123456789!?.,*+-=≠:%abcdefghijklmnopqrstuvwxyz#$&()/@;<>[]|{}~€"
 
     arr_zeichen = [
+    [0,0,0,0,0,0,0],
     [14,17,1,2,4,0,4],
     [14,17,17,31,17,17,17],
     [30,17,17,30,17,17,30],

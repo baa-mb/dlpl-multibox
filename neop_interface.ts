@@ -9,7 +9,7 @@ enum sName {
     //% block="Matrix 8x8"
     standard,
     //% block="MultiBox"
-    wolf
+    multibox
 }
 
 enum nrMatrix {

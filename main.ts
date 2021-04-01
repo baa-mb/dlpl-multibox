@@ -267,9 +267,12 @@ function set_helligkeit(helligkeit: number, zch_pause: number) {
     }
 }
 
-function set_system(sname: string) {
-    if (sname == "wolf") {
+function set_system(sname: number) {
+    if (sname == 0) {
+        basic.showString("S")
+    }
 
+    if (sname == 1) {
         basic.showString("W")
     }
 }

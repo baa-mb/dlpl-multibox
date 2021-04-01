@@ -5,6 +5,12 @@
  * Weitere Informationen unter https://makecode.microbit.org/blocks/custom
  */
 
+enum sName {
+    //% block="Matrix 8x8"
+    standard,
+    //% block="wolf"
+    wolf
+}
 
 enum nrMatrix {
     //% block="Haupt"
@@ -30,6 +36,13 @@ enum defMatrix {
  */
 //% color=190 weight=100 icon="\uf00a" block="DLPL-MultiBox"
 namespace DLPLmultibox {
+    //% group="Technische Definition"
+    //% sname.defl=0    
+    //% block="Vordefiniertes System wählen %sname (matrix8x8, wolf, ...)."
+    //% weight=90 
+    export function definitionSystem(sname:sName) {
+        set_system(sname)
+    }
 
     //% group="Technische Definition"
     //% pin.defl=1    

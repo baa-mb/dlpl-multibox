@@ -8,7 +8,7 @@
 enum sName {
     //% block="Matrix 8x8"
     standard,
-    //% block="wolf"
+    //% block="MultiBox"
     wolf
 }
 
@@ -38,7 +38,7 @@ enum defMatrix {
 namespace DLPLmultibox {
     //% group="Technische Definition"
     //% sname.defl=0    
-    //% block="Vordefiniertes System wählen %sname (matrix8x8, wolf, ...)."
+    //% block="Vordefiniertes System wählen %sname (Matrix8x8, MultiBox, ...)."
     //% weight=90 
     export function definitionSystem(sname:sName) {
         set_system(sname)

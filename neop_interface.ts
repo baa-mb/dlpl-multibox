@@ -88,6 +88,4 @@ namespace DLPLmultibox {
     export function loescheMatrix(snr:nrMatrix) {
         loesche_matrix(snr)
     }
-
-
 }

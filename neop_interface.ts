@@ -64,8 +64,6 @@ namespace DLPLmultibox {
 
 
     //% group="Befehle"
-
-    
     //% txt.defl="ABC"
     //% block="Schreibe auf Matrix $snr den Text $txt mit Farbe $color"
     //% color.shadow="colorNumberPicker"
@@ -73,6 +71,16 @@ namespace DLPLmultibox {
     export function schreibeText(snr:nrMatrix,txt: string,color:number): void {
         neop_schreibe_zch(snr,txt,color)
     }
+
+    //% group="Befehle"
+    //% txt.defl="ABC" abstand.defl=0
+    //% block="Scrollen auf Matrix $snr den Text $txt mit Farbe $color - Buchstabenabstand $abstand"
+    //% color.shadow="colorNumberPicker"
+    //% weight=40
+    export function scrolleText(snr:nrMatrix,txt: string,color:number,abstand:number): void {
+        neop_scrolle_zch(snr,txt,color,abstand)
+    }
+
 
     //% snr.defl=0
     //% block="Lösche Matrix %snr"

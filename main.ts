@@ -1,4 +1,4 @@
-function neop_scroll_zch(snr: number, zch_str: string = "A", color: number, abstand: number = 0) {
+function neop_scrolle_zch(snr: number, zch_str: string = "A", color: number, abstand: number = 0) {
     let zeichen_matrix: Array<number> = []
 
     let mx = arr_neop_settings[snr].hwMatrix[0];
@@ -281,7 +281,7 @@ function set_system(sname: number) {
 function test() {
     init_strip(0, 0, 1)
     set_helligkeit(80, 5000)
-    neop_scroll_zch(0, "ABCDEFGHIJKLMNOabcdefgh", NeoPixelColors.Green, -3)
+    neop_scrolle_zch(0, "ABCDEFGHIJKLMNOabcdefgh", NeoPixelColors.Green, -3)
     //neop_schreibe_zch(0,"B CA",NeoPixelColors.Red)
     if (neo_strip_anzahl > 1) neop_schreibe_zch(0, "AB", NeoPixelColors.Green)
     if (neo_strip_anzahl > 2) neop_schreibe_zch(2, "12340", NeoPixelColors.Blue)

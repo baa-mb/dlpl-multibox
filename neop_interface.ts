@@ -74,7 +74,7 @@ namespace DLPLmultibox {
 
     //% group="Befehle"
     //% txt.defl="ABC" abstand.defl=0
-    //% block="Scrollen auf Matrix $snr den Text $txt mit Farbe $color - Buchstabenabstand $abstand"
+    //% block="Scrollen auf Matrix $snr den Text $txt mit Farbe $color Buchstabenabstand $abstand"
     //% color.shadow="colorNumberPicker"
     //% weight=40
     export function scrolleText(snr:nrMatrix,txt: string,color:number,abstand:number): void {

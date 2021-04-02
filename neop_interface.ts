@@ -81,6 +81,15 @@ namespace DLPLmultibox {
         neop_scrolle_zch(snr,txt,color,abstand)
     }
 
+    //% group="Befehle"
+    //% x.defl=0 y.defl=0 $snr=0
+    //% color.shadow="colorNumberPicker"
+    //% weight=35
+    //% block="Setze einen Koordinatenpunkt (0/0) bis (max,max) x=$x, y=$y Farbe $color Buchstabenabstand auf Matrix $snr"
+    export function setPunkt(x:number,y:number,color:number,snr:nrMatrix): void {
+        set_punkt(x,y,color,snr)
+    }
+
 
     //% snr.defl=0
     //% block="Lösche Matrix %snr"

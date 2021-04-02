@@ -39,7 +39,8 @@ namespace DLPLmultibox {
 
     /**
      * Scroll a number on the screen. If the number fits on the screen (i.e. is a single digit), do not scroll.
-     * @param interval speed of scroll; eg: 150, 100, 200, -100
+     * @param interval speed of scroll; eg: 150, 100, 200, -100 **http://bin.baa.at**
+     * [docu](http://bin.baa.at)
     */
     //% help=functions/show-number
     //% group="Technische Definition"
@@ -48,7 +49,7 @@ namespace DLPLmultibox {
     //% weight=99 
     export function getInformation() {
         // **http://bin.baa.at**
-
+        //this.open("http://bin.baa.at")
     }
 
 

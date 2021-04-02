@@ -39,7 +39,7 @@ namespace DLPLmultibox {
      * Normalerweise ist ein System mit 8x8 auf Pin1 vordefiniert und benutzbar (Name: Haupt)
      * Es können aber 2 weitere Systeme verwendet werden (links und rechts)
     */
-    //% help=https://github.com/baa-mb/dlpl-multibox/README.md
+    //% help=https://github.com/baa-mb/dlpl-multibox/dlplmultibox-schreibetext.md
     //% group="Technische Definition"
     //% sname.defl=0    
     //% block="Vordefiniertes System wählen %sname (Matrix8x8, MultiBox, ...)."

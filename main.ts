@@ -1,4 +1,15 @@
 
+function set_punkt(x: number, y:number, color: number,snr:number=0) {
+    let mx = arr_neop_settings[snr].hwMatrix[0];
+    let my = arr_neop_settings[snr].hwMatrix[1];
+
+    let px = y*my + ((y % 2) ? (x % mx):mx-(x % mx)-1)
+    //console.log("px="+px+" "+mx+" "+x+" "+y)
+    arr_neop_strips[snr].setPixelColor(px, color);
+    arr_neop_strips[snr].show()
+}
+
+
 
 function init_alphabet() {
     //bstreihenfolge einhalten
@@ -227,15 +238,6 @@ function neop_scrolle_zch(snr: number, zch_str: string = "A", color: number, abs
         pause(strip_pause / 10)
         arr_neop_strips[snr].show()
     }
-}
-
-
-function set_punkt(x: number, y:number, color: number,snr:number=0) {
-    let mx = arr_neop_settings[snr].hwMatrix[0];
-    let my = arr_neop_settings[snr].hwMatrix[1];
-
-    let px = y + (y % 2) ? x : (mx- x)
-    arr_neop_strips[snr].setPixelColor(px, color);
 }
 
 

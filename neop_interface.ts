@@ -85,7 +85,7 @@ namespace DLPLmultibox {
     //% x.defl=0 y.defl=0 $snr=0
     //% color.shadow="colorNumberPicker"
     //% weight=35
-    //% block="Setze Koordinatenpunkt (0/0)bis (max,max) x=$x, y=$y Farbe $color auf Matrix $snr"
+    //% block="Setze Koordinatenpunkt auf Matrix $snr x =$x y =$y Farbe $color (Nullpunkt links oben)"
     export function setPunkt(x:number,y:number,color:number,snr:nrMatrix): void {
         set_punkt(x,y,color,snr)
     }

@@ -234,7 +234,7 @@ function set_punkt(x: number, y:number, color: number,snr:number=0) {
     let mx = arr_neop_settings[snr].hwMatrix[0];
     let my = arr_neop_settings[snr].hwMatrix[1];
 
-    let px = y * mx + (y % 2) ? x : (mx- x)
+    let px = y + (y % 2) ? x : (mx- x)
     arr_neop_strips[snr].setPixelColor(px, color);
 }
 

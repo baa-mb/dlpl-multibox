@@ -31,7 +31,7 @@ enum defMatrix {
 }
 
 
-
+//% help=baa-mb/dlpl-multibox/README.md
 //% color=190 weight=100 icon="\uf00a" block="DLPL-MultiBox"
 namespace DLPLmultibox {
 
@@ -42,7 +42,7 @@ namespace DLPLmultibox {
      * @param interval speed of scroll; eg: 150, 100, 200, -100 **http://bin.baa.at**
      * [docu](http://bin.baa.at)
     */
-    //% help=functions/show-number
+    
     //% group="Technische Definition"
     //% sname.defl=0    
     //% block="Grundinformationen: Für den Entwurf freier Zeichen verwende die Web-Seite **http://bin.baa.at**"

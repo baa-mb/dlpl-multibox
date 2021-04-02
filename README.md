@@ -25,6 +25,8 @@ Die Aktualisierung dieses Bildes kann einige Minuten dauern.
 
 ![Eine gerenderte Ansicht der Blöcke](https://github.com/baa-mb/dlpl-multibox/raw/master/.github/makecode/blocks.png)
 
+![Eine gerenderte Ansicht der Blöcke] (https://baa-mb.github.io/dlpl-multibox/static/icon.png)
+
 #### Metadaten (verwendet für Suche, Rendering)
 
 * for PXT/microbit

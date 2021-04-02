@@ -1,6 +1,6 @@
 {
     "name": "dlpl-multibox",
-    "version": "0.0.15",
+    "version": "0.0.16",
     "description": "Neopixel-Ansteuerung mit Matrixfunktion",
     "dependencies": {
         "core": "*",

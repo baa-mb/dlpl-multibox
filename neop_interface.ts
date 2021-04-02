@@ -40,7 +40,6 @@ namespace DLPLmultibox {
      * Es können aber 2 weitere Systeme verwendet werden (links und rechts)
     */
     //% help=https://github.com/baa-mb/dlpl-multibox/README.md
-    //% help=https://github.com/baa-mb/dlpl-multibox/   
     //% group="Technische Definition"
     //% sname.defl=0    
     //% block="Vordefiniertes System wählen %sname (Matrix8x8, MultiBox, ...)."
@@ -52,6 +51,7 @@ namespace DLPLmultibox {
     //% group="Technische Definition"
     //% pin.defl=1    
     //% block="Die Matrix %snr mit Technik %hwMatrix ist an Pin %pin angeschlossen."
+    //% help=github:baa-mb/dlpl-multibox/README.md
     //% weight=80 
     export function definitionMatrix(snr:nrMatrix,hwMatrix:defMatrix,pin:number) {
         init_strip(snr,hwMatrix,pin)
@@ -63,6 +63,7 @@ namespace DLPLmultibox {
     //% zch_pause.shadow="timePicker"
     //% helligkeit.min=1 helligkeit.max=200
     //% weight=70
+    //% help=baa-mb/dlpl-multibox/README.md
     export function all_strip_settings(helligkeit:number,zch_pause:number): void {
         set_helligkeit(helligkeit,zch_pause);
     }

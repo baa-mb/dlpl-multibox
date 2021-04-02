@@ -12,7 +12,8 @@
         "main.ts",
         "README.md",
         "neop_interface.ts",
-        "tutorial.md"
+        "tutorial.md",
+        "dlplmultibox-schreibetext.md"
     ],
     "testFiles": [],
     "supportedTargets": [

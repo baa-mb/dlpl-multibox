@@ -31,11 +31,32 @@ enum defMatrix {
 }
 
 
-/**
- * Benutzerdefinierte Blöcke
- */
+
 //% color=190 weight=100 icon="\uf00a" block="DLPL-MultiBox"
 namespace DLPLmultibox {
+
+
+
+    /**
+     * Scroll a number on the screen. If the number fits on the screen (i.e. is a single digit), do not scroll.
+     * @param interval speed of scroll; eg: 150, 100, 200, -100
+    */
+    //% help=functions/show-number
+    //% group="Technische Definition"
+    //% sname.defl=0    
+    //% block="Grundinformationen: Für den Entwurf freier Zeichen verwende die Web-Seite **http://bin.baa.at**"
+    //% weight=99 
+    export function getInformation() {
+        // **http://bin.baa.at**
+
+    }
+
+
+
+    /**
+     * Normalerweise ist ein System mit 8x8 auf Pin1 vordefiniert und benutzbar (Name: Haupt)
+     * Es können aber 2 weitere Systeme verwendet werden (links und rechts)
+    */
     //% group="Technische Definition"
     //% sname.defl=0    
     //% block="Vordefiniertes System wählen %sname (Matrix8x8, MultiBox, ...)."
@@ -98,3 +119,6 @@ namespace DLPLmultibox {
         loesche_matrix(snr)
     }
 }
+
+
+

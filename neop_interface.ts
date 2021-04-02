@@ -81,7 +81,16 @@ namespace DLPLmultibox {
         neop_scrolle_zch(snr,txt,color,abstand)
     }
 
+    //% group="Befehle"
+    //% x.defl=0 y.defl=0 $snr=0
+    //% color.shadow="colorNumberPicker"
+    //% weight=35
+    //% block="Setze Koordinatenpunkt auf Matrix $snr x =$x y =$y Farbe $color (Nullpunkt links oben)"
+    export function setPunkt(x:number,y:number,color:number,snr:nrMatrix): void {
+        set_punkt(x,y,color,snr)
+    }
 
+    //% group="Befehle"
     //% snr.defl=0
     //% block="Lösche Matrix %snr"
     //% weight=30

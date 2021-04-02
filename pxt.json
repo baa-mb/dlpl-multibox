@@ -18,5 +18,6 @@
         "microbit"
     ],
     "preferredEditor": "tsprj",
-    "languageRestriction": "javascript-only"
+    "languageRestriction": "javascript-only",
+    "icon": "https://baa-mb.github.io/dlpl-multibox/static/icon.png"
 }

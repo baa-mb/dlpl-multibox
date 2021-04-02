@@ -326,7 +326,7 @@ let neo_strip_anzahl: number = 1;
 //beginn initialisierung ############################
 init_alphabet();
 default_strip_data();
-init_strip(0, 0, 1);
+//init_strip(0, 0, 1);
 basic.showIcon(IconNames.Yes)
 // ende Initialisierung
 // test();

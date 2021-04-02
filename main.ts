@@ -1,67 +1,3 @@
-function neop_scrolle_zch(snr: number, zch_str: string = "A", color: number, abstand: number = 0) {
-    let zeichen_matrix: Array<number> = []
-
-    let mx = arr_neop_settings[snr].hwMatrix[0];
-    let my = arr_neop_settings[snr].hwMatrix[1];
-
-    let is_type = 0
-    let zch_len = zch_str.length
-    if (zch_len > 1) {
-        is_type = 1; //wort
-        let arr_split = zch_str.split(",")
-        if (arr_split.length > 2) {
-            is_type = 2; //array
-            zeichen_matrix = arr_split.map(wert => parseInt(wert));
-            zch_len = 1;
-        }
-    }
-
-    let a_bin_zeilen: number[][] = [[], []];
-    for (let n = 0; n < zch_len; n++) {
-        if (is_type < 2) { //no array
-            let zch: string = zch_str[n]
-            let found = bst_reihe.indexOf(zch);
-            if (found == -1) {
-                found = 0;
-            }
-            zeichen_matrix = arr_zeichen[found]
-        }
-
-        zeichen_matrix.forEach(function (zahl, zeile) {
-            let a_bin_zahl: Array<number> = [];
-            for (let bit = mx + abstand; bit >= 0; bit--) {
-                let sss = zahl & Math.pow(2, bit);
-                a_bin_zahl.push(sss > 0 ? 1 : 0);
-            }
-
-            if (a_bin_zeilen[zeile] == undefined) {
-                a_bin_zeilen[zeile] = a_bin_zahl;
-            } else {
-                a_bin_zeilen[zeile] = a_bin_zeilen[zeile].concat(a_bin_zahl)
-            }
-        })
-    }
-
-    let len = a_bin_zeilen[0].length;
-    for (let pos = 0; pos <= len; pos++) {
-        arr_neop_strips[snr].clear()
-        arr_neop_strips[snr].show()
-
-        a_bin_zeilen.forEach(function (a_dig, z) {
-            for (let b = 0; b < mx; b++) {
-                let wert = a_dig[b + pos];
-                if (wert) {
-                    let px = (z) * mx + ((z % 2) ? (b) : (mx - 1 - b))
-                    arr_neop_strips[snr].setPixelColor(px, color);
-                }
-            }
-            arr_neop_strips[snr].show()
-        })
-        pause(strip_pause / 10)
-        arr_neop_strips[snr].show()
-    }
-}
-
 
 
 function init_alphabet() {
@@ -229,6 +165,70 @@ function neop_schreibe_zch(snr: number, zch_str: string = "A", color: number) {
     }
 }
 
+function neop_scrolle_zch(snr: number, zch_str: string = "A", color: number, abstand: number = 0) {
+    let zeichen_matrix: Array<number> = []
+
+    let mx = arr_neop_settings[snr].hwMatrix[0];
+    let my = arr_neop_settings[snr].hwMatrix[1];
+
+    let is_type = 0
+    let zch_len = zch_str.length
+    if (zch_len > 1) {
+        is_type = 1; //wort
+        let arr_split = zch_str.split(",")
+        if (arr_split.length > 2) {
+            is_type = 2; //array
+            zeichen_matrix = arr_split.map(wert => parseInt(wert));
+            zch_len = 1;
+        }
+    }
+
+    let a_bin_zeilen: number[][] = [[], []];
+    for (let n = 0; n < zch_len; n++) {
+        if (is_type < 2) { //no array
+            let zch: string = zch_str[n]
+            let found = bst_reihe.indexOf(zch);
+            if (found == -1) {
+                found = 0;
+            }
+            zeichen_matrix = arr_zeichen[found]
+        }
+
+        zeichen_matrix.forEach(function (zahl, zeile) {
+            let a_bin_zahl: Array<number> = [];
+            for (let bit = mx + abstand; bit >= 0; bit--) {
+                let sss = zahl & Math.pow(2, bit);
+                a_bin_zahl.push(sss > 0 ? 1 : 0);
+            }
+
+            if (a_bin_zeilen[zeile] == undefined) {
+                a_bin_zeilen[zeile] = a_bin_zahl;
+            } else {
+                a_bin_zeilen[zeile] = a_bin_zeilen[zeile].concat(a_bin_zahl)
+            }
+        })
+    }
+
+    let len = a_bin_zeilen[0].length;
+    for (let pos = 0; pos <= len; pos++) {
+        arr_neop_strips[snr].clear()
+        arr_neop_strips[snr].show()
+
+        a_bin_zeilen.forEach(function (a_dig, z) {
+            for (let b = 0; b < mx; b++) {
+                let wert = a_dig[b + pos];
+                if (wert) {
+                    let px = (z) * mx + ((z % 2) ? (b) : (mx - 1 - b))
+                    arr_neop_strips[snr].setPixelColor(px, color);
+                }
+            }
+            arr_neop_strips[snr].show()
+        })
+        pause(strip_pause / 10)
+        arr_neop_strips[snr].show()
+    }
+}
+
 
 function loesche_matrix(snr: number) {
     arr_neop_strips[snr].clear()
@@ -326,7 +326,7 @@ let neo_strip_anzahl: number = 1;
 //beginn initialisierung ############################
 init_alphabet();
 default_strip_data();
-//init_strip(0, 0, 1);
+init_strip(0, 0, 1);
 basic.showIcon(IconNames.Yes)
 // ende Initialisierung
 // test();

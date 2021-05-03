@@ -10,11 +10,12 @@ function set_punkt(x: number, y:number, color: number,snr:number=0) {
 }
 
 
-
 function init_alphabet() {
     //bstreihenfolge einhalten
     //bst_reihe = "? ABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÜäöüZ0123456789!?.,*+-=≠:%abcdefghijklmnopqrstuvwxyz#$&()/@;<>[]|{}~€"; //99
     bst_reihe = "? ABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÜäöüZ0123456789!?"; //47
+
+
 
     arr_zeichen = [
         [14, 17, 1, 2, 4, 0, 4],

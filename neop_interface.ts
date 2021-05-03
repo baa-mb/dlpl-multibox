@@ -36,13 +36,13 @@ enum defMatrix {
 namespace DLPLmultibox {
 
     /**
-     * Normalerweise ist ein System mit 8x8 auf Pin1 vordefiniert und benutzbar (Name: Haupt)
-     * Es können aber 2 weitere Systeme verwendet werden (links und rechts)
+     * Standardmäßig ist ein Gesamtsystem mit 8x8 auf Pin 1 vordefiniert und benutzbar (Name: Haupt)
+     * Es können aber auch weitere Systeme definiert verwendet werden (Namen: links und rechts)
     */
 
     //% group="Technische Definition"
     //% sname.defl=0    
-    //% block="Vordefiniertes System wählen %sname (Matrix8x8, MultiBox, ...)."
+    //% block="Vordefiniertes Gesamtsystem wählen %sname (Matrix8x8, MultiBox, ...)."
     //% weight=90 
     export function definitionSystem(sname:sName) {
         set_system(sname)
@@ -80,7 +80,7 @@ namespace DLPLmultibox {
 
     //% group="Befehle"
     //% txt.defl="ABC" abstand.defl=0
-    //% block="Scrollen auf Matrix $snr den Text $txt mit Farbe $color Buchstabenabstand $abstand"
+    //% block="Scrollen auf Matrix $snr den Text $txt mit Farbe $color Buchstabenabstand (-4 bis 4) $abstand"
     //% color.shadow="colorNumberPicker"
     //% weight=40
     export function scrolleText(snr:nrMatrix,txt: string,color:number,abstand:number): void {

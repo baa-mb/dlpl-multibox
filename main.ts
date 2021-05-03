@@ -13,7 +13,7 @@ function set_punkt(x: number, y:number, color: number,snr:number=0) {
 function init_alphabet() {
     //bstreihenfolge einhalten
     //bst_reihe = "? ABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÜäöüZ0123456789!?.,*+-=≠:%abcdefghijklmnopqrstuvwxyz#$&()/@;<>[]|{}~€"; //99
-    bst_reihe = "? ABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÜäöüZ0123456789!?"; //47
+    bst_reihe = "? ABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÜ0123456789!?+=-.:=≠"; //47
 
 
 
@@ -49,10 +49,6 @@ function init_alphabet() {
         [10, 0, 4, 10, 17, 31, 17],
         [17, 14, 17, 17, 17, 17, 14],
         [17, 0, 17, 17, 17, 0, 14],
-        [10, 0, 14, 1, 15, 17, 15],
-        [10, 0, 0, 14, 17, 17, 14],
-        [10, 0, 0, 17, 17, 17, 14],
-        [31, 1, 2, 4, 8, 16, 31],
         [14, 17, 19, 21, 25, 17, 14],
         [4, 12, 4, 4, 4, 4, 14],
         [14, 17, 1, 2, 4, 8, 31],
@@ -64,6 +60,13 @@ function init_alphabet() {
         [14, 17, 17, 14, 17, 17, 14],
         [14, 17, 17, 15, 1, 2, 12],
         [0, 0, 8, 21, 2, 0, 0],
+        [6, 9, 28, 8, 28, 9, 6],
+        [6, 9, 28, 8, 28, 9, 6],
+        [6, 9, 28, 8, 28, 9, 6],
+        [6, 9, 28, 8, 28, 9, 6],
+        [6, 9, 28, 8, 28, 9, 6],
+        [6, 9, 28, 8, 28, 9, 6],
+        [6, 9, 28, 8, 28, 9, 6],
         [6, 9, 28, 8, 28, 9, 6]
     ]
     
@@ -339,11 +342,12 @@ function set_system(sname: number) {
     }
 
     if (sname == 1) { //wolf
-        // init_strip(1,1,2) //links, 7x5,pin2
-        // init_strip(2,1,7) //rechts, 7x5,pin7  
-        init_strip(0,0,1) //haupt, 16x16,pin6 
+        
+        init_strip(1,1,0) //links, 7x5,pin0
+        init_strip(2,1,1) //rechts, 7x5,pin1  
 
-         init_strip(1,1,0) //links, 7x5,pin7  
+        init_strip(1,0,0) //links, 16x16,pin6 
+        init_strip(2,0,1) //rechts, 16x16,pin6 
 
         basic.showString("M")
     }

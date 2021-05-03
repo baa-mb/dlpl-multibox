@@ -334,12 +334,15 @@ function set_helligkeit(helligkeit: number, zch_pause: number) {
 
 function set_system(sname: number) {
     if (sname == 0) {
-        init_strip(0,0,1)
+        init_strip(0,0,1) //Haupt, 8x8,pin1 
         basic.showString("S")
     }
 
-    if (sname == 1) {
-        basic.showString("W")
+    if (sname == 1) { //wolf
+        init_strip(0,2,6) //haupt, 16x16,pin6 
+        init_strip(1,1,2) //links, 7x5,pin2
+        init_strip(2,1,7) //rechts, 7x5,pin7  
+        basic.showString("M")
     }
 }
 
